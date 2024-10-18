@@ -14,10 +14,29 @@ body {
 	color: #000000;
 }
 
-.dark .UserOverview__social--linkedIn:hover {
-	background-color: currentColor;
+/* @import '@acab/reset.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+/* body {
+	background-color: #0c0034;
+} */
+/* .orbitron body {
+	font-family: 'Orbitron', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: normal;
+	font-style: normal;
+} */
+
+/* body {
+	background-color: #0c0034;
+	color: #ffffff;
+	font-family: 'Orbitron';
 }
 
-.light .UserOverview__social--linkedIn:hover {
-	background-color: currentColor;
-}
+/* Dark Mode */
+/* .light body {
+	background-color: rgba(255, 255, 255, 0.785);
+	color: #000000;
+} */

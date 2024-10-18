@@ -12,7 +12,7 @@
 	<div class="UserOverview__social">
 		<a
 			href="https://www.linkedin.com/in/ekrem-teke-786992201/"
-			class="UserOverview__social--linkedIn"
+			class="UserOverview__social--linkedIn icon"
 		>
 			<svg
 				class="w-[36px] h-[36px] text-gray-800 dark:text-white"
@@ -31,25 +31,24 @@
 				<path d="M7.2 8.809H4V19.5h3.2V8.809Z" />
 			</svg>
 		</a>
-		<a href="https://www.instagram.com/ekremteke.uk/" class="UserOverview__social--instagram">
+		<a href="https://www.instagram.com/ekremteke.uk/" class="UserOverview__social--instagram icon">
 			<svg
 				class="w-[36px] h-[36px] text-gray-800 dark:text-white"
 				aria-hidden="true"
 				xmlns="http://www.w3.org/2000/svg"
 				width="24"
 				height="24"
-				fill="none"
+				fill="currentColor"
 				viewBox="0 0 24 24"
 			>
 				<path
-					fill="currentColor"
 					fill-rule="evenodd"
 					d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
 					clip-rule="evenodd"
 				/>
 			</svg>
 		</a>
-		<a href="/https://github.com/Ekremteke" class="UserOverview__social--gitHub">
+		<a href="/https://github.com/Ekremteke" class="UserOverview__social--gitHub icon">
 			<svg
 				class="w-[36px] h-[36px] text-gray-800 dark:text-white"
 				aria-hidden="true"
@@ -70,16 +69,26 @@
 </div>
 
 <style>
+	.UserOverview {
+		width: fit-content;
+		min-height: 90%;
+		align-self: center;
+		justify-self: center;
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+		padding: 2rem;
+	}
 	.UserOverview__avatar {
 		height: 13rem;
 		width: 13rem;
 		padding: 0;
 		margin: 0;
-		border-radius: 50%; /* Yuvarlak yapmak için 50% */
-		overflow: hidden; /* Taşan kısımları gizle */
+		border-radius: 50%;
+		overflow: hidden;
 		display: flex;
 		justify-content: center;
-		align-items: center; /* Merkezde konumlandır */
+		align-items: center;
 		border: 3px solid rgba(255, 255, 255, 0.837);
 		box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
 	}
@@ -107,19 +116,28 @@
 		font-size: 1.5rem;
 	}
 
-	.UserOverview {
-		width: fit-content;
-		min-height: 90%;
-		align-self: center;
-		justify-self: center;
-		display: flex;
-		flex-direction: column;
-		gap: 3rem;
-		padding: 2rem;
-		padding-bottom: 20%;
-	}
 	.UserOverview__social {
 		display: flex;
 		justify-content: space-around;
+	}
+	.icon {
+		background-color: transparent; /* Default background */
+		border: solid 1px currentColor; /* Border color matches text color */
+		border-radius: 0.3rem;
+		transition:
+			background-color 0.3s,
+			color 0.3s; /* Smooth transition */
+	}
+
+	/* Dark Mode Hover Styles */
+	.icon:hover {
+		background-color: currentColor;
+	}
+
+	.dark .icon:hover svg {
+		fill: black;
+	}
+	.light .icon:hover svg {
+		fill: white;
 	}
 </style>

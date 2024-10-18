@@ -4,9 +4,8 @@
 	import { onMount } from 'svelte';
 	import UserOverview from '../components/UserOverview.svelte';
 
-	let theme = 'light';
+	let theme = 'dark';
 
-	// Kullanıcının daha önce seçtiği tema varsa onu uygula
 	onMount(() => {
 		const savedTheme = localStorage.getItem('theme');
 		if (savedTheme) {
@@ -26,11 +25,37 @@
 	}
 </script>
 
-<Header {toggleTheme} />
-<UserOverview />
+<div class="layout-container">
+	<div>
+		<Header {toggleTheme} />
+	</div>
 
-<slot />
+	<div class="content-wrapper">
+		<UserOverview />
+		<main class="route-content">
+			<slot />
+		</main>
+	</div>
+</div>
 
 <style>
-	/* Stil eklenebilir */
+	.layout-container {
+		display: flex;
+		flex-direction: column;
+		height: 100vh;
+	}
+
+	.content-wrapper {
+		display: flex;
+		flex: 1;
+		overflow: hidden;
+	}
+
+	.route-content {
+		flex: 1;
+		overflow-y: auto;
+		padding: 1rem;
+	}
+
+	/* You may need to add styles for UserOverview to control its width */
 </style>
