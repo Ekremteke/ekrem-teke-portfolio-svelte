@@ -1,0 +1,23 @@
+@import '@acab/reset.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	background-color: #0c0034;
+	color: #ffffff;
+	font-family: 'Orbitron';
+}
+
+.light body {
+	background-color: rgba(255, 255, 255, 0.785);
+	color: #000000;
+}
+
+.dark .UserOverview__social--linkedIn:hover {
+	background-color: currentColor;
+}
+
+.light .UserOverview__social--linkedIn:hover {
+	background-color: currentColor;
+}
