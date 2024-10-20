@@ -2,7 +2,6 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-
 		<script
 			src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"
 			integrity="sha512-Kef5sc7gfTacR7TZKelcrRs15ipf7+t+n7Zh6mKNJbmW+/RRdCW9nwfLn4YX0s2nO6Kv5Y2ChqgIakaC6PW09A=="
@@ -25,15 +24,95 @@
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%
+
+		<style>
+			html,
+			body {
+				height: 100%;
+				width: 100%;
+				margin: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			body.dark {
+				background-color: #0c0034;
+				color: #ffffff;
+			}
+			body.light {
+				background-color: rgba(255, 255, 255, 0.785);
+				color: #000000;
+			}
+			#theme-toggle {
+				position: fixed;
+				top: 20px;
+				right: 20px;
+				z-index: 1000;
+				background: none;
+				border: none;
+				cursor: pointer;
+				font-size: 24px;
+				color: inherit;
+			}
+			.body {
+				width: 80%;
+				height: 80%;
+
+				z-index: 1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		</style>
 	</head>
-	<body data-sveltekit-preload-data="hover" class="text-white relative">
-		<div style="display: contents" class="relative z-[1]">%sveltekit.body%</div>
-		<div class="absolute min-h-screen top-0 left-0 w-full z-[-1] opacity-70">
-			<div class="absolute inset-0" id="particles-js"></div>
+	<body data-sveltekit-preload-data="hover" class="dark">
+		<!-- Theme toggle button -->
+		<button id="theme-toggle" aria-label="Toggle theme">
+			<i class="fas fa-moon"></i>
+		</button>
+
+		<!-- Main body content -->
+		<div class="body">%sveltekit.body%</div>
+
+		<!-- Particle background -->
+		<div class="absolute min-h-screen top-0 left-0 w-full z-[0] opacity-70 pointer-events-none">
+			<div class="absolute inset-0 pointer-events-auto" id="particles-js"></div>
 		</div>
 		<script>
-			particlesJS.load('particles-js', 'assets/particles.json', function () {
-				console.log('Callback - particles.js config loaded');
+			document.addEventListener('DOMContentLoaded', (event) => {
+				const themeToggle = document.getElementById('theme-toggle');
+				const body = document.body;
+				const icon = themeToggle.querySelector('i');
+
+				// Check for saved theme preference or use default dark theme
+				const currentTheme = localStorage.getItem('theme') || 'dark';
+				body.classList.add(currentTheme);
+				updateIcon(currentTheme);
+
+				themeToggle.addEventListener('click', () => {
+					if (body.classList.contains('dark')) {
+						body.classList.replace('dark', 'light');
+						localStorage.setItem('theme', 'light');
+						updateIcon('light');
+					} else {
+						body.classList.replace('light', 'dark');
+						localStorage.setItem('theme', 'dark');
+						updateIcon('dark');
+					}
+				});
+
+				function updateIcon(theme) {
+					if (theme === 'dark') {
+						icon.classList.replace('fa-sun', 'fa-moon');
+					} else {
+						icon.classList.replace('fa-moon', 'fa-sun');
+					}
+				}
+
+				// Particles.js initialization
+				particlesJS.load('particles-js', 'assets/particles.json', function () {
+					console.log('Callback - particles.js config loaded');
+				});
 			});
 		</script>
 	</body>

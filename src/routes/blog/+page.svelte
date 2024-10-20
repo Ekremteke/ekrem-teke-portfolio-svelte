@@ -1,4 +1,4 @@
-<div>contact</div>
+<div>Blog</div>
 
 <style>
 </style>

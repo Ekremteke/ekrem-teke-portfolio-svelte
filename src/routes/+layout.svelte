@@ -1,61 +1,58 @@
 <script>
 	import '../app.css';
 	import Header from '../components/Header.svelte';
-	import { onMount } from 'svelte';
 	import UserOverview from '../components/UserOverview.svelte';
-
-	let theme = 'dark';
-
-	onMount(() => {
-		const savedTheme = localStorage.getItem('theme');
-		if (savedTheme) {
-			theme = savedTheme;
-			document.documentElement.classList.add(savedTheme);
-		}
-	});
-
-	function toggleTheme() {
-		const newTheme = theme === 'light' ? 'dark' : 'light';
-		theme = newTheme;
-
-		document.documentElement.classList.remove('light', 'dark');
-		document.documentElement.classList.add(newTheme);
-
-		localStorage.setItem('theme', newTheme);
-	}
 </script>
 
-<div class="layout-container">
-	<div>
-		<Header {toggleTheme} />
-	</div>
-
+<div class="layout">
 	<div class="content-wrapper">
-		<UserOverview />
+		<div class="UserOverview">
+			<UserOverview />
+		</div>
+
 		<main class="route-content">
 			<slot />
 		</main>
 	</div>
+	<div class="header">
+		<Header />
+	</div>
 </div>
 
 <style>
-	.layout-container {
+	.layout {
 		display: flex;
-		flex-direction: column;
-		height: 100vh;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		width: 100%;
+		gap: 1rem;
 	}
 
 	.content-wrapper {
 		display: flex;
-		flex: 1;
-		overflow: hidden;
+		width: 100%;
+		height: 100%;
+		align-items: center;
+		justify-content: center;
+		border-radius: 1rem;
+		border: 2px currentColor solid;
 	}
-
+	.UserOverview {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 30%;
+	}
 	.route-content {
-		flex: 1;
-		overflow-y: auto;
-		padding: 1rem;
+		display: flex;
+		width: 70%;
+		height: 100.5%;
+		margin-right: -5px;
+		border-radius: 1rem;
+		align-items: center;
+		justify-content: center;
+		background-color: rgb(15, 14, 14);
+		border: 2px currentColor solid;
 	}
-
-	/* You may need to add styles for UserOverview to control its width */
 </style>

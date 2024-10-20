@@ -3,7 +3,11 @@
 
 <div class="UserOverview">
 	<div class="UserOverview__avatar">
-		<img class="avatar" src="/images/profile.jpg" alt="Profile of the Ekrem Teke" />
+		<img
+			class="avatar"
+			src="/images/profile.jpg"
+			alt="Profile avatar of the Ekrem Teke with purple background at a front-end web development conference"
+		/>
 	</div>
 	<div class="UserInformation">
 		<h2 class="UserInformation__name">Ekrem Teke</h2>
@@ -12,7 +16,7 @@
 	<div class="UserOverview__social">
 		<a
 			href="https://www.linkedin.com/in/ekrem-teke-786992201/"
-			class="UserOverview__social--linkedIn icon"
+			class="UserOverview__social--linkedIn socialIcon"
 		>
 			<svg
 				class="w-[36px] h-[36px] text-gray-800 dark:text-white"
@@ -31,7 +35,10 @@
 				<path d="M7.2 8.809H4V19.5h3.2V8.809Z" />
 			</svg>
 		</a>
-		<a href="https://www.instagram.com/ekremteke.uk/" class="UserOverview__social--instagram icon">
+		<a
+			href="https://www.instagram.com/ekremteke.uk/"
+			class="UserOverview__social--instagram socialIcon"
+		>
 			<svg
 				class="w-[36px] h-[36px] text-gray-800 dark:text-white"
 				aria-hidden="true"
@@ -48,7 +55,7 @@
 				/>
 			</svg>
 		</a>
-		<a href="/https://github.com/Ekremteke" class="UserOverview__social--gitHub icon">
+		<a href="/https://github.com/Ekremteke" class="UserOverview__social--gitHub socialIcon">
 			<svg
 				class="w-[36px] h-[36px] text-gray-800 dark:text-white"
 				aria-hidden="true"
@@ -70,20 +77,18 @@
 
 <style>
 	.UserOverview {
-		width: fit-content;
-		min-height: 90%;
+		height: 100%;
+		width: 100%;
 		align-self: center;
 		justify-self: center;
 		display: flex;
 		flex-direction: column;
-		gap: 3rem;
+		gap: 5rem;
 		padding: 2rem;
 	}
 	.UserOverview__avatar {
 		height: 13rem;
 		width: 13rem;
-		padding: 0;
-		margin: 0;
 		border-radius: 50%;
 		overflow: hidden;
 		display: flex;
@@ -91,6 +96,8 @@
 		align-items: center;
 		border: 3px solid rgba(255, 255, 255, 0.837);
 		box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+		align-self: center;
+		justify-self: center;
 	}
 
 	.avatar {
@@ -104,7 +111,7 @@
 	.UserInformation {
 		display: flex;
 		flex-direction: column;
-		gap: 2rem;
+		gap: 3rem;
 		align-items: center;
 	}
 	.UserInformation__name {
@@ -118,26 +125,27 @@
 
 	.UserOverview__social {
 		display: flex;
-		justify-content: space-around;
+		gap: 2rem;
+		justify-content: center;
 	}
-	.icon {
-		background-color: transparent; /* Default background */
-		border: solid 1px currentColor; /* Border color matches text color */
+	.socialIcon {
+		background-color: transparent;
+		border: solid 1px currentColor;
 		border-radius: 0.3rem;
 		transition:
 			background-color 0.3s,
-			color 0.3s; /* Smooth transition */
+			color 0.3s;
 	}
 
 	/* Dark Mode Hover Styles */
-	.icon:hover {
+	.socialIcon:hover {
 		background-color: currentColor;
 	}
 
-	.dark .icon:hover svg {
+	.dark .socialIcon:hover svg {
 		fill: black;
 	}
-	.light .icon:hover svg {
+	.light .socialIcon:hover svg {
 		fill: white;
 	}
 </style>
