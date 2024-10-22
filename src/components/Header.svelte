@@ -1,16 +1,28 @@
 <script lang="ts">
-	// export let toggleTheme: () => void;
-	// export let isLightMode = true;
-	// function handleThemeToggle() {
-	// 	toggleTheme();
-	// 	isLightMode = !isLightMode;
-	// }
+	let tooltips = {
+		home: false,
+		about: false,
+		blog: false,
+		portfolio: false,
+		contact: false
+	};
 </script>
 
 <header class="Header">
-	<div>
-		<a href="/home" class="Header__home icon"
-			><svg
+	<div
+		class="Header__navItem Header__home"
+		role="button"
+		tabindex="0"
+		aria-label="Home"
+		on:mouseenter={() => {
+			tooltips.home = true;
+		}}
+		on:mouseleave={() => {
+			tooltips.home = false;
+		}}
+	>
+		<a href="/home" class="icon">
+			<svg
 				class="w-[40px] h-[40px] text-gray-800 dark:text-white"
 				aria-hidden="true"
 				xmlns="http://www.w3.org/2000/svg"
@@ -28,10 +40,24 @@
 				/>
 			</svg>
 		</a>
+		{#if tooltips.home}
+			<div class="tooltip">Home</div>
+		{/if}
 	</div>
-	<div>
-		<a href="/about" class="icon"
-			><svg
+	<div
+		class="Header__navItem Header__about"
+		role="button"
+		tabindex="0"
+		aria-label="About"
+		on:mouseenter={() => {
+			tooltips.about = true;
+		}}
+		on:mouseleave={() => {
+			tooltips.about = false;
+		}}
+	>
+		<a href="/about" class="icon">
+			<svg
 				class="w-[40px] h-[40px] text-gray-800 dark:text-white"
 				aria-hidden="true"
 				xmlns="http://www.w3.org/2000/svg"
@@ -49,10 +75,24 @@
 				/>
 			</svg>
 		</a>
+		{#if tooltips.about}
+			<div class="tooltip">About</div>
+		{/if}
 	</div>
-	<div>
-		<a href="/blog" class="icon"
-			><svg
+	<div
+		class="Header__navItem Header__blog"
+		role="button"
+		tabindex="0"
+		aria-label="Blog"
+		on:mouseenter={() => {
+			tooltips.blog = true;
+		}}
+		on:mouseleave={() => {
+			tooltips.blog = false;
+		}}
+	>
+		<a href="/blog" class="icon">
+			<svg
 				class="w-[40px] h-[40px] text-gray-800 dark:text-white"
 				aria-hidden="true"
 				xmlns="http://www.w3.org/2000/svg"
@@ -70,10 +110,24 @@
 				/>
 			</svg>
 		</a>
+		{#if tooltips.blog}
+			<div class="tooltip">Blog</div>
+		{/if}
 	</div>
-	<div>
-		<a href="/portfolio" class="icon"
-			><svg
+	<div
+		class="Header__navItem Header__portfolio"
+		role="button"
+		tabindex="0"
+		aria-label="Portfolio"
+		on:mouseenter={() => {
+			tooltips.portfolio = true;
+		}}
+		on:mouseleave={() => {
+			tooltips.portfolio = false;
+		}}
+	>
+		<a href="/portfolio" class="icon">
+			<svg
 				class="w-[40px] h-[40px] text-gray-800 dark:text-white"
 				aria-hidden="true"
 				xmlns="http://www.w3.org/2000/svg"
@@ -91,10 +145,24 @@
 				/>
 			</svg>
 		</a>
+		{#if tooltips.portfolio}
+			<div class="tooltip">Portfolio</div>
+		{/if}
 	</div>
-	<div>
-		<a href="/contact" class="icon"
-			><svg
+	<div
+		class="Header__navItem Header__contact"
+		role="button"
+		tabindex="0"
+		aria-label="Contact"
+		on:mouseenter={() => {
+			tooltips.contact = true;
+		}}
+		on:mouseleave={() => {
+			tooltips.contact = false;
+		}}
+	>
+		<a href="/contact" class="icon">
+			<svg
 				class="w-[40px] h-[40px] text-gray-800 dark:text-white"
 				aria-hidden="true"
 				xmlns="http://www.w3.org/2000/svg"
@@ -111,6 +179,9 @@
 				/>
 			</svg>
 		</a>
+		{#if tooltips.contact}
+			<div class="tooltip">Contact</div>
+		{/if}
 	</div>
 </header>
 
@@ -121,9 +192,15 @@
 		gap: 1rem;
 		height: fit-content;
 		border-radius: 1rem;
-		border: 2px solid currentColor;
+		border: 0px solid currentColor;
 		padding: 1rem 0.5rem;
+		box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
 	}
+
+	.Header__navItem {
+		position: relative;
+	}
+
 	.icon {
 		background-color: transparent;
 		border-radius: 0.3rem;
@@ -132,8 +209,23 @@
 			color 0.3s;
 	}
 
-	/* Dark Mode Hover Styles */
+	.tooltip {
+		position: absolute;
+		text-align: center;
+		width: 6rem;
+		left: 100%;
+		top: 50%;
+		transform: translateY(-50%);
+		margin-left: 0.5rem;
+		padding: 0.5rem;
+		background-color: rgba(0, 0, 0, 0.8);
+		color: white;
+		border-radius: 0.3rem;
+		font-size: 1rem;
+		white-space: nowrap;
+	}
 
+	/* Dark Mode Hover Styles */
 	.dark .icon:hover path {
 		stroke: rgb(15, 15, 15);
 	}
@@ -147,5 +239,9 @@
 	.light .icon:hover svg {
 		background-color: black;
 		border-radius: 0.5rem;
+	}
+	.dark .Header .tooltip {
+		background-color: rgb(252, 252, 252);
+		color: black;
 	}
 </style>

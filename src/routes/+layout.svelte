@@ -11,10 +11,10 @@
 		</div>
 
 		<main class="route-content">
-			<slot />
+			<slot class="slot" />
 		</main>
 	</div>
-	<div class="header">
+	<div class="Header">
 		<Header />
 	</div>
 </div>
@@ -26,7 +26,7 @@
 		justify-content: center;
 		height: 100%;
 		width: 100%;
-		gap: 1rem;
+		gap: 1.2rem;
 	}
 
 	.content-wrapper {
@@ -36,7 +36,9 @@
 		align-items: center;
 		justify-content: center;
 		border-radius: 1rem;
-		border: 2px currentColor solid;
+		border: 0px currentColor solid;
+		box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+		background-color: rgba(0, 0, 0, 0.207);
 	}
 	.UserOverview {
 		display: flex;
@@ -47,12 +49,21 @@
 	.route-content {
 		display: flex;
 		width: 70%;
-		height: 100.5%;
+		height: 100.1%;
 		margin-right: -5px;
 		border-radius: 1rem;
 		align-items: center;
 		justify-content: center;
 		background-color: rgb(15, 14, 14);
-		border: 2px currentColor solid;
+		border: 0px currentColor solid;
+		box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+	}
+	.Header {
+		align-self: flex-start;
+		background-color: rgba(0, 0, 0, 0.207);
+		border-radius: 1rem;
+	}
+	.slot {
+		width: 100%;
 	}
 </style>

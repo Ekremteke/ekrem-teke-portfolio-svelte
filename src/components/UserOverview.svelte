@@ -89,24 +89,48 @@
 	.UserOverview__avatar {
 		height: 13rem;
 		width: 13rem;
+		max-height: 13rem;
+		max-width: 13rem;
 		border-radius: 50%;
 		overflow: hidden;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		border: 3px solid rgba(255, 255, 255, 0.837);
+		border: 0px solid rgba(255, 255, 255, 0.837);
 		box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
 		align-self: center;
 		justify-self: center;
+		position: relative;
 	}
 
 	.avatar {
+		position: absolute;
 		height: 200%;
 		width: 200%;
-		border-radius: 50%;
 		object-fit: cover;
 		transition: transform 0.3s ease;
-		transform: translateY(5%);
+		transform: translate(5%);
+	}
+
+	@media screen and (max-width: 950px) {
+		.UserOverview__avatar {
+			height: 10rem;
+			width: 10rem;
+			max-height: 10rem;
+			max-width: 10rem;
+		}
+
+		.avatar {
+			height: 200%;
+			width: 200%;
+		}
+	}
+
+	@media screen and (max-width: 480px) {
+		.UserOverview__avatar {
+			max-height: 4rem;
+			max-width: 4rem;
+		}
 	}
 	.UserInformation {
 		display: flex;
@@ -116,19 +140,20 @@
 	}
 	.UserInformation__name {
 		font-weight: 900;
-		font-size: 2rem;
+		font-size: x-large;
 	}
 	.UserInformation__title {
-		font-weight: 600;
-		font-size: 1.5rem;
+		font-weight: 700;
+		font-size: large;
 	}
 
 	.UserOverview__social {
 		display: flex;
-		gap: 2rem;
-		justify-content: center;
+		justify-content: space-around;
 	}
 	.socialIcon {
+		min-width: 1rem;
+		height: auto;
 		background-color: transparent;
 		border: solid 1px currentColor;
 		border-radius: 0.3rem;
