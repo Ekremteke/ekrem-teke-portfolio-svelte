@@ -38,6 +38,7 @@
 		"@acab/reset.css": "^0.10.0",
 		"@svelte-web-fonts/google": "^1.0.4",
 		"nodemailer": "^6.9.15",
-		"particles.js": "^2.0.0"
+		"particles.js": "^2.0.0",
+		"svelte-markdown": "^0.4.1"
 	}
 }

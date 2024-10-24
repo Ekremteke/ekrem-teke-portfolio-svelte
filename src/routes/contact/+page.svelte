@@ -128,38 +128,40 @@
 
 <style>
 	.contact-container {
-		max-width: 100%;
-		max-height: 100%;
+		max-width: 90%;
+		max-height: 90%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding: 2rem;
+		padding: 1rem;
 		background: transparent;
 		color: currentColor;
 	}
 
 	.contact-content {
-		width: 100%;
+		max-height: 90%;
+
 		color: currentColor;
-		padding: 2.5rem;
+		padding: 1rem;
 	}
 
 	h1 {
 		font-size: 2rem;
 		font-weight: 700;
 		margin-bottom: 0.5rem;
-		color: #1a1a1a;
+		color: currentColor;
 	}
 
 	.subtitle {
 		color: currentColor;
-		margin-bottom: 2rem;
+		margin-bottom: 1rem;
 	}
 
 	.contact-form {
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
+		gap: 0.5rem;
+		max-height: 80%;
 	}
 
 	.form-group {
@@ -169,18 +171,19 @@
 	}
 
 	label {
-		font-weight: 500;
+		font-weight: 400;
 		color: currentColor;
 	}
 
 	input,
 	textarea {
 		width: 100%;
-		padding: 0.75rem;
+		padding: 0.5rem;
 		border: 1px solid rgb(214, 218, 255);
 		border-radius: 0.5rem;
 		background-color: rgb(214, 218, 255);
 		transition: all 0.3s ease;
+		color: currentColor;
 	}
 
 	input:focus,
@@ -196,13 +199,14 @@
 		align-items: center;
 		justify-content: center;
 		background-color: #0c0034;
-		color: white;
+		color: currentColor;
 		border: none;
 		border-radius: 0.5rem;
-		font-weight: 500;
+		font-weight: 600;
 		cursor: pointer;
 		transition: all 0.3s ease;
-		height: 3rem;
+
+		padding: 0.5rem;
 	}
 	.dark .contact-container .submit-button {
 		background-color: rgb(214, 218, 255);
@@ -219,11 +223,12 @@
 	}
 
 	.success-message {
-		padding: 1rem;
+		padding: 0.5rem;
 		background-color: #dcfce7;
 		color: #166534;
 		border-radius: 0.5rem;
-		margin-bottom: 1rem;
+		margin-bottom: 0.5rem;
+		font-size: 0.9rem;
 	}
 
 	.error-message {
@@ -236,7 +241,7 @@
 
 	@media (max-width: 640px) {
 		.contact-content {
-			padding: 1.5rem;
+			padding: 0.5rem;
 		}
 	}
 </style>

@@ -109,7 +109,7 @@
 		width: 200%;
 		object-fit: cover;
 		transition: transform 0.3s ease;
-		transform: translate(5%);
+		transform: translateY(4%);
 	}
 
 	@media screen and (max-width: 950px) {
@@ -126,7 +126,7 @@
 		}
 	}
 
-	@media screen and (max-width: 480px) {
+	@media screen and (max-width: 640px) {
 		.UserOverview__avatar {
 			max-height: 4rem;
 			max-width: 4rem;

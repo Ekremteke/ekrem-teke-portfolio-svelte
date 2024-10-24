@@ -8,9 +8,9 @@
 	};
 </script>
 
-<header class="Header">
+<div class="Navbar">
 	<div
-		class="Header__navItem Header__home"
+		class="Navbar__navItem Navbar__home"
 		role="button"
 		tabindex="0"
 		aria-label="Home"
@@ -41,11 +41,11 @@
 			</svg>
 		</a>
 		{#if tooltips.home}
-			<div class="tooltip">Home</div>
+			<div class="tooltip"><a href="/home">Home</a></div>
 		{/if}
 	</div>
 	<div
-		class="Header__navItem Header__about"
+		class="Navbar__navItem Navbar__about"
 		role="button"
 		tabindex="0"
 		aria-label="About"
@@ -76,11 +76,11 @@
 			</svg>
 		</a>
 		{#if tooltips.about}
-			<div class="tooltip">About</div>
+			<div class="tooltip"><a href="/about">About</a></div>
 		{/if}
 	</div>
 	<div
-		class="Header__navItem Header__blog"
+		class="Navbar__navItem Navbar__blog"
 		role="button"
 		tabindex="0"
 		aria-label="Blog"
@@ -111,11 +111,11 @@
 			</svg>
 		</a>
 		{#if tooltips.blog}
-			<div class="tooltip">Blog</div>
+			<div class="tooltip"><a href="/blog">Blog</a></div>
 		{/if}
 	</div>
 	<div
-		class="Header__navItem Header__portfolio"
+		class="Navbar__navItem Navbar__portfolio"
 		role="button"
 		tabindex="0"
 		aria-label="Portfolio"
@@ -146,11 +146,11 @@
 			</svg>
 		</a>
 		{#if tooltips.portfolio}
-			<div class="tooltip">Portfolio</div>
+			<div class="tooltip"><a href="/portfolio">Portfolio</a></div>
 		{/if}
 	</div>
 	<div
-		class="Header__navItem Header__contact"
+		class="Navbar__navItem Navbar__contact"
 		role="button"
 		tabindex="0"
 		aria-label="Contact"
@@ -180,13 +180,13 @@
 			</svg>
 		</a>
 		{#if tooltips.contact}
-			<div class="tooltip">Contact</div>
+			<div class="tooltip"><a href="/contact">Contact</a></div>
 		{/if}
 	</div>
-</header>
+</div>
 
 <style>
-	.Header {
+	.Navbar {
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
@@ -197,7 +197,7 @@
 		box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
 	}
 
-	.Header__navItem {
+	.Navbar__navItem {
 		position: relative;
 	}
 
@@ -213,14 +213,14 @@
 		position: absolute;
 		text-align: center;
 		width: 6rem;
-		left: 100%;
+		right: 100%;
 		top: 50%;
 		transform: translateY(-50%);
 		margin-left: 0.5rem;
 		padding: 0.5rem;
 		background-color: rgba(0, 0, 0, 0.8);
 		color: white;
-		border-radius: 0.3rem;
+		border-radius: 0.3rem 0 0 0.3rem;
 		font-size: 1rem;
 		white-space: nowrap;
 	}
@@ -234,13 +234,14 @@
 	}
 	.dark .icon:hover svg {
 		background-color: white;
-		border-radius: 0.5rem;
+
+		border-radius: 0 0.3rem 0.3rem 0;
 	}
 	.light .icon:hover svg {
 		background-color: black;
-		border-radius: 0.5rem;
+		border-radius: 0 0.3rem 0.3rem 0;
 	}
-	.dark .Header .tooltip {
+	.dark .Navbar .tooltip {
 		background-color: rgb(252, 252, 252);
 		color: black;
 	}

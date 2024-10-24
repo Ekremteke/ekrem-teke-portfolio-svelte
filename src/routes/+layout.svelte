@@ -1,21 +1,43 @@
 <script>
 	import '../app.css';
-	import Header from '../components/Header.svelte';
+	import Navbar from '../components/Navbar.svelte';
 	import UserOverview from '../components/UserOverview.svelte';
+	import { onMount } from 'svelte';
+
+	let navbarStyle = '';
+
+	function handleResize() {
+		const width = window.innerWidth;
+
+		const baseWidth = 1600;
+		const minWidth = 900;
+
+		const rightPercentage = ((width - minWidth) / (baseWidth - minWidth)) * (5 - 1) + 1;
+
+		navbarStyle = `right: ${rightPercentage}%;`;
+	}
+
+	onMount(() => {
+		handleResize();
+		window.addEventListener('resize', handleResize);
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	});
 </script>
 
 <div class="layout">
 	<div class="content-wrapper">
-		<div class="UserOverview">
+		<header class="UserOverview">
 			<UserOverview />
-		</div>
+			<div class="Navbar" style={navbarStyle}>
+				<Navbar />
+			</div>
+		</header>
 
 		<main class="route-content">
 			<slot class="slot" />
 		</main>
-	</div>
-	<div class="Header">
-		<Header />
 	</div>
 </div>
 
@@ -58,12 +80,15 @@
 		border: 0px currentColor solid;
 		box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
 	}
-	.Header {
-		align-self: flex-start;
+	.Navbar {
 		background-color: rgba(0, 0, 0, 0.207);
 		border-radius: 1rem;
+		position: absolute;
+		top: 10%;
 	}
 	.slot {
 		width: 100%;
+	}
+	@media screen and (max-size: 640px) {
 	}
 </style>
