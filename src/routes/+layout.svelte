@@ -62,6 +62,11 @@
 		box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
 		background-color: rgba(0, 0, 0, 0.207);
 	}
+
+	.slot {
+		width: 100%;
+		min-height: min-content; /* içerik yüksekliği kadar yer kaplaması için */
+	}
 	.UserOverview {
 		display: flex;
 		align-items: center;
@@ -74,12 +79,14 @@
 		height: 100.1%;
 		margin-right: -5px;
 		border-radius: 1rem;
-		align-items: center;
+		align-items: flex-start;
+		padding: 1rem;
 		justify-content: center;
 		background-color: rgb(15, 14, 14);
-		border: 0px currentColor solid;
 		box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+		overflow-y: auto;
 	}
+
 	.Navbar {
 		background-color: rgba(0, 0, 0, 0.207);
 		border-radius: 1rem;

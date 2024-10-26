@@ -3,14 +3,19 @@
 	import { concurrent } from 'svelte-typewriter';
 
 	let containerWidth: number;
-	let aboutText = `Hello, I'm Ekrem, a passionate software developer with a focus on web development and design. While I specialise primarily in front-end technologies, I have a solid understanding of back-end development as well. My journey in tech began in 2022 when I completed an intensive one-year Full-Stack Web Development course with Code Your Future in Manchester. Following this, I expanded my skill-set through additional training with Prime Talent in AWS fundamentals and earned a Level-5 Full-Stack Development qualification from Gateshead College.`;
+	let aboutText = `
+Hello, I'm <span style= "font-weight:900; font-size:1.2rem">Ekrem</span>, a passionate <span style= "font-weight:900; font-size:1.2rem">software developer </span> with a focus on web development and design
+While I specialise primarily in front-end technologies, I have a solid understanding of back-end development as well.<br>
+<br> My journey in tech began in 2022 when I completed an intensive one-year Full-Stack Web Development course with Code Your Future in Manchester.<br>
+Following this, I expanded my skill-set through additional training with Prime Talent in AWS fundamentals and earned a Level-5 Full-Stack Development qualification from Gateshead College.
+`;
 
 	let displayText = aboutText;
 
 	onMount(() => {
 		const handleResize = () => {
-			const containerWidth = window.innerWidth * 1.6; // 80% of window width
-			const characterLimit = Math.floor(containerWidth / 7.5); // Approximate characters per width
+			const containerWidth = window.innerWidth * 1.6;
+			const characterLimit = Math.floor(containerWidth / 5);
 			displayText =
 				aboutText.slice(0, characterLimit) + (characterLimit < aboutText.length ? '...' : '');
 		};
@@ -61,7 +66,7 @@
 		{/key}
 	</div>
 	<div class="Home__About">
-		<p use:concurrent={{ interval: 10 }} class="Home__About--text">{displayText}</p>
+		<p class="Home__About--text">{@html displayText}</p>
 		<a href="/about" class="read-more">To read more about me</a>
 	</div>
 </div>
@@ -77,6 +82,7 @@
 		gap: 2rem;
 		align-items: center;
 		justify-content: center;
+		align-self: center;
 	}
 
 	.Home__info {
@@ -105,18 +111,18 @@
 	}
 
 	.Home__About {
-		width: 80%;
+		width: 100%;
 		margin: 0 auto;
 		text-align: center;
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: 1.5rem;
 	}
 
 	.read-more {
 		color: #0066cc;
 		text-decoration: none;
-		font-weight: 500;
+		font-weight: 700;
 		transition: color 0.3s ease;
 	}
 
@@ -124,7 +130,13 @@
 		color: #003366;
 	}
 	.Home__About--text {
-		font-weight: 700;
+		font-weight: 600;
 		color: color-mix(in srgb, black 70%, purple 80%);
+	}
+	.dark .Home .Home__About--text {
+		color: color-mix(in srgb, rgb(255, 255, 255) 80%, rgb(128, 0, 128) 50%);
+	}
+	.dark .Home .read-more:hover {
+		color: #9aa4ae;
 	}
 </style>
