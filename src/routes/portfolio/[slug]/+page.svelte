@@ -49,6 +49,19 @@
 				'Bootstrap'
 			],
 			features: []
+		},
+		'project-2': {
+			title: `TV Show Finder`,
+			description:
+				' This project showcases my early work in DOM manipulation and API handling, built using only HTML, CSS, and vanilla JavaScript. It leverages the TV Maze API to fetch data on popular TV shows, allowing users to search for and explore details about their favorite series—all without frameworks or libraries. While it’s a straightforward app, I used it to master the fundamentals of JavaScript’s DOM and asynchronous data fetching.',
+			description2: `One of the highlights of this project is its progressive enhancement approach, ensuring a user-friendly experience even on slower networks or older devices. This was a great hands-on experience with the basics of web development, teaching me how to dynamically render content, handle user input, and improve app interactivity using JavaScript. <br>
+<br>
+Though simple, the project strengthened my foundation in core web technologies and helped me better understand the “behind-the-scenes” workings of the DOM, which has been invaluable in more complex projects. Please find the
+<a href='https://cyf-ekremteke-tv.netlify.app/' style=color:#ffcc00;> link here</a>
+`,
+			images: [],
+			technologies: ['JavaScript', 'Document Object Model (DOM)', 'HTML', 'CSS', 'Web APIs'],
+			features: []
 		}
 	};
 
@@ -155,25 +168,27 @@
 				<div class="loading-indicator">Loading images...</div>
 			{:else}
 				<div class="project-detail__gallery">
-					{#each processedImages as image}
-						<div class="project-detail__image-container" in:fly|local={{ y: 20, duration: 200 }}>
-							<button
-								type="button"
-								on:click={() => openImageModal(image)}
-								on:keydown={(e) => e.key === 'Enter' && openImageModal(image)}
-								aria-label="Open Image Modal"
-								class="project-detail__button"
-							>
-								<img
-									src={image.thumbnail}
-									alt="Project"
-									class="project-detail__image"
-									loading="lazy"
-									decoding="async"
-								/>
-							</button>
-						</div>
-					{/each}
+					{#if processedImages.length !== 0}
+						{#each processedImages as image}
+							<div class="project-detail__image-container" in:fly|local={{ y: 20, duration: 200 }}>
+								<button
+									type="button"
+									on:click={() => openImageModal(image)}
+									on:keydown={(e) => e.key === 'Enter' && openImageModal(image)}
+									aria-label="Open Image Modal"
+									class="project-detail__button"
+								>
+									<img
+										src={image.thumbnail}
+										alt="Project"
+										class="project-detail__image"
+										loading="lazy"
+										decoding="async"
+									/>
+								</button>
+							</div>
+						{/each}
+					{/if}
 				</div>
 			{/if}
 
@@ -205,7 +220,7 @@
 					<h2 class="project-detail__subtitle">Project Description</h2>
 					<p>{project.description}</p>
 					<br />
-					<p>{project.description2}</p>
+					<p>{@html project.description2}</p>
 				</div>
 
 				<div class="project-detail__technologies">

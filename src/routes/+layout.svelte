@@ -9,7 +9,7 @@
 	function handleResize() {
 		const width = window.innerWidth;
 
-		const baseWidth = 1600;
+		const baseWidth = 2000;
 		const minWidth = 900;
 
 		const rightPercentage = ((width - minWidth) / (baseWidth - minWidth)) * (5 - 1) + 1;
@@ -65,7 +65,7 @@
 
 	.slot {
 		width: 100%;
-		min-height: min-content; /* içerik yüksekliği kadar yer kaplaması için */
+		min-height: min-content;
 	}
 	.UserOverview {
 		display: flex;

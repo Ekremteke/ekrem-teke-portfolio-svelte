@@ -10,7 +10,6 @@
 	let displayText = description;
 	let contentRef: HTMLElement | null = null;
 
-	// Debounced resize işlevi
 	const debouncedResize = debounce(() => {
 		if (contentRef) {
 			const containerWidth = contentRef.clientWidth * 1.5;
