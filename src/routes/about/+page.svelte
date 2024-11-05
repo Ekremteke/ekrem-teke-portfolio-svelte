@@ -4,6 +4,27 @@
 
 <div class="About" in:fade>
 	<div class="about__left-side">
+		<section class="personal-details">
+			<h2 class="personal-details__title">Personal Details</h2>
+			<div class="personal-details__info">
+				<div class="personal-details__item">
+					<h3 class="personal-details__label">Age:</h3>
+					<p class="personal-details__value">35</p>
+				</div>
+				<div class="personal-details__item">
+					<h3 class="personal-details__label">Residence:</h3>
+					<p class="personal-details__value">United Kingdom</p>
+				</div>
+				<div class="personal-details__item">
+					<h3 class="personal-details__label">Address:</h3>
+					<p class="personal-details__value">Lumley Gardens, Gateshead, NE8 3QB</p>
+				</div>
+				<div class="personal-details__item">
+					<h3 class="personal-details__label">Email:</h3>
+					<p class="personal-details__value">ekremteke.uk@gmail.com</p>
+				</div>
+			</div>
+		</section>
 		<section class="skills">
 			<h2 class="skills__title">Technical Skills</h2>
 			<div class="skills__grid">
@@ -25,28 +46,6 @@
 						<li class="skills__item">PostgreSQL</li>
 						<li class="skills__item">REST APIs</li>
 					</ul>
-				</div>
-			</div>
-		</section>
-
-		<section class="personal-details">
-			<h2 class="personal-details__title">Personal Details</h2>
-			<div class="personal-details__info">
-				<div class="personal-details__item">
-					<h3 class="personal-details__label">Age:</h3>
-					<p class="personal-details__value">35</p>
-				</div>
-				<div class="personal-details__item">
-					<h3 class="personal-details__label">Residence:</h3>
-					<p class="personal-details__value">United Kingdom</p>
-				</div>
-				<div class="personal-details__item">
-					<h3 class="personal-details__label">Address:</h3>
-					<p class="personal-details__value">Lumley Gardens, Gateshead, NE8 3QB</p>
-				</div>
-				<div class="personal-details__item">
-					<h3 class="personal-details__label">Email:</h3>
-					<p class="personal-details__value">ekremteke.uk@gmail.com</p>
 				</div>
 			</div>
 		</section>
@@ -153,7 +152,7 @@
 	.About {
 		display: flex;
 		gap: 2rem;
-		color: #fff;
+		color: currentColor;
 		min-height: min-content;
 		font-size: 0.875rem;
 		font-weight: 600;
@@ -215,7 +214,7 @@
 	}
 
 	.skills__item {
-		color: rgba(255, 255, 255, 0.7);
+		color: currentColor;
 		margin-bottom: 0.3rem;
 		position: relative;
 	}
@@ -224,7 +223,7 @@
 		content: '→';
 		position: absolute;
 		left: -1rem;
-		color: rgba(255, 255, 255, 0.4);
+		color: currentColor;
 	}
 
 	/* Personal Details */
@@ -243,7 +242,7 @@
 	}
 
 	.personal-details__value {
-		color: rgba(255, 255, 255, 0.8);
+		color: currentColor;
 	}
 
 	/* Services */
@@ -275,7 +274,7 @@
 	}
 
 	.services__item {
-		color: rgba(255, 255, 255, 0.7);
+		color: currentColor;
 		margin-bottom: 0.3rem;
 		position: relative;
 	}
@@ -284,13 +283,13 @@
 		content: '•';
 		position: absolute;
 		left: -1rem;
-		color: rgba(255, 255, 255, 0.4);
+		color: currentColor;
 	}
 
 	/* About Me */
 	.about__content {
 		line-height: 1.6;
-		color: rgba(255, 255, 255, 0.8);
+		color: currentColor;
 	}
 
 	.about__paragraph {

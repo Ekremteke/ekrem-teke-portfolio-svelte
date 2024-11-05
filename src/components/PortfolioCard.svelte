@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
+	import { onMount, onDestroy } from 'svelte';
 	import debounce from 'lodash/debounce';
 
 	export let title = '';
@@ -17,16 +18,27 @@
 			displayText =
 				description.slice(0, characterLimit) + (characterLimit < description.length ? '...' : '');
 		}
-	}, 200);
+	}, 50);
 
-	$: {
+	onMount(() => {
 		if (browser) {
+			window.addEventListener('resize', debouncedResize);
 			debouncedResize();
 		}
+	});
+
+	onDestroy(() => {
+		if (browser) {
+			window.removeEventListener('resize', debouncedResize);
+		}
+	});
+
+	$: if (browser && description) {
+		debouncedResize();
 	}
 </script>
 
-<a bind:this={contentRef} href="/portfolio/{slug}" class="portfolio-card">
+<a href="/portfolio/{slug}" class="portfolio-card">
 	<div class="portfolio-card__image-container">
 		<img src={imageUrl} alt={title} class="portfolio-card__image" />
 	</div>
@@ -74,16 +86,17 @@
 	.portfolio-card__content {
 		padding: 0.5rem;
 		overflow: scroll;
+		scrollbar-width: 0;
 	}
 
 	.portfolio-card__title {
-		color: rgba(255, 255, 255, 0.9);
+		color: currentColor;
 		font-size: 1rem;
 		margin: 0 0 0.5rem 0;
 	}
 
 	.portfolio-card__description {
-		color: rgba(255, 255, 255, 0.7);
+		color: currentColor;
 		font-size: 0.8rem;
 		line-height: 1.2;
 	}

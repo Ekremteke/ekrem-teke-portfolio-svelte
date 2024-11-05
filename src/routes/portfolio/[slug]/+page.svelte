@@ -60,12 +60,21 @@
 				' This project showcases my early work in DOM manipulation and API handling, built using only HTML, CSS, and vanilla JavaScript. It leverages the TV Maze API to fetch data on popular TV shows, allowing users to search for and explore details about their favorite series—all without frameworks or libraries. While it’s a straightforward app, I used it to master the fundamentals of JavaScript’s DOM and asynchronous data fetching.',
 			description2: `One of the highlights of this project is its progressive enhancement approach, ensuring a user-friendly experience even on slower networks or older devices. This was a great hands-on experience with the basics of web development, teaching me how to dynamically render content, handle user input, and improve app interactivity using JavaScript. <br>
 <br>
-Though simple, the project strengthened my foundation in core web technologies and helped me better understand the “behind-the-scenes” workings of the DOM, which has been invaluable in more complex projects. Please find the
-<a href='https://cyf-ekremteke-tv.netlify.app/' style=color:#ffcc00;> link here</a>
-`,
+Though simple, the project strengthened my foundation in core web technologies and helped me better understand the “behind-the-scenes” workings of the DOM, which has been invaluable in more complex projects. <br>
+	Please try out the<a href='https://cyf-ekremteke-tv.netlify.app/' 
+   style="
+       border-radius: 0.5rem; 
+       padding: 0.2rem; 
+       background-color: rgba(0, 0, 0, 0.395); 
+       color: #ffb300; 
+       text-decoration: none;">
+    live demo here
+</a> to see how it works!
+	`,
 			images: [],
 			technologies: ['JavaScript', 'Document Object Model (DOM)', 'HTML', 'CSS', 'Web APIs'],
-			features: []
+			features: [],
+			videoUrl: ['https://www.youtube.com/embed/Dq7r8JMqQak?si=4E-FU4OElWzI8DtJ']
 		},
 		'Tea-Roulette': {
 			title: `Tea Roulette`,
@@ -78,16 +87,25 @@ Though simple, the project strengthened my foundation in core web technologies a
 	<br>
 	Building Tea Roulette helped me strengthen my skills in JavaScript, as well as using Express.js and Node.js for backend functionality. I learned how to handle user input dynamically and build an interactive front end using HTML and CSS. The project taught me about managing animations and timing for the roulette spin feature, which was essential for creating the excitement of "who will it be?" <br>
 	<br>
-	Please try out the <a href='https://example-link-to-tea-roulette.netlify.app/' style=color:#ffcc00;>live demo here</a> to see how it works!
+	Please try out the<a href='https://cyf-ekremteke-tv.netlify.app/' 
+   style="
+       border-radius: 0.5rem; 
+       padding: 0.2rem; 
+       background-color: rgba(0, 0, 0, 0.395); 
+       color: #ffb300; 
+       text-decoration: none;">
+    live demo here
+</a> to see how it works!
 	`,
-			images: ['image1.png', 'image2.png'], // Replace with actual image paths or URLs
+			images: [],
 			technologies: ['JavaScript', 'Express.js', 'Node.js', 'HTML', 'CSS'],
 			features: [
 				'Dynamic name and tea preference entry',
 				'Customizable tea options: sugar levels and milk selection',
 				'Random roulette-style selection with animated spinning effect',
 				'Final selection display with the "winner" who will prepare tea for everyone'
-			]
+			],
+			videoUrl: ['https://www.youtube.com/embed/dMQHFYlP1M4?si=vaAxctrQUrxC5n8-']
 		}
 	};
 
@@ -318,7 +336,7 @@ Though simple, the project strengthened my foundation in core web technologies a
 
 <style>
 	.project-detail {
-		color: white;
+		color: currentColor;
 		max-width: 1200px;
 		margin: 0 auto;
 		padding: 2rem;
@@ -337,7 +355,10 @@ Though simple, the project strengthened my foundation in core web technologies a
 	}
 
 	.project-detail__back-button {
-		color: #ffcc00;
+		border-radius: 0.5rem;
+		padding: 0.5rem;
+		background-color: rgba(0, 0, 0, 0.395);
+		color: #ffb300;
 		text-decoration: none;
 		margin-right: auto;
 	}
@@ -482,7 +503,7 @@ Though simple, the project strengthened my foundation in core web technologies a
 		top: 20px;
 		background: rgba(25, 25, 25, 0.472);
 		border: none;
-		color: white;
+		color: currentColor;
 		font-size: 2rem;
 		cursor: pointer;
 		border-radius: 5px;
