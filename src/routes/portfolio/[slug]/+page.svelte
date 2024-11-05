@@ -20,7 +20,7 @@
 	}
 
 	const projectDetails: Record<string, Project> = {
-		'project-1': {
+		'decision-maker': {
 			title: `Decision Making Framework <br> (Voting Methods for Group Decisions)`,
 			description:
 				'This tool is designed to help facilitate group decisions that involve voting. It will help you and your team think through some important factors that go into good decision-making and identify which voting method to use. We recommend saving or printing the PDF summary of your results once you finish using the tool.',
@@ -48,9 +48,13 @@
 				'CSS',
 				'Bootstrap'
 			],
-			features: []
+			features: [],
+			videoUrl: [
+				'https://www.youtube.com/embed/Y_oYGpjhG2I',
+				'https://www.youtube.com/embed/dO8hn3LStPY'
+			]
 		},
-		'project-2': {
+		'TV-show': {
 			title: `TV Show Finder`,
 			description:
 				' This project showcases my early work in DOM manipulation and API handling, built using only HTML, CSS, and vanilla JavaScript. It leverages the TV Maze API to fetch data on popular TV shows, allowing users to search for and explore details about their favorite series—all without frameworks or libraries. While it’s a straightforward app, I used it to master the fundamentals of JavaScript’s DOM and asynchronous data fetching.',
@@ -192,26 +196,19 @@ Though simple, the project strengthened my foundation in core web technologies a
 				</div>
 			{/if}
 
-			{#if !project.videoUrl}
+			{#if project.videoUrl && project.videoUrl.length > 0}
 				<div class="project-detail__video">
-					<iframe
-						class="video"
-						src="https://www.youtube.com/embed/Y_oYGpjhG2I"
-						title="Mobile-Decision Making Framework (Voting Methods for Group Decisions)"
-						frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-						referrerpolicy="strict-origin-when-cross-origin"
-						allowfullscreen
-					></iframe>
-					<iframe
-						class="video"
-						src="https://www.youtube.com/embed/dO8hn3LStPY"
-						title="Voting Methods for Group Decisions"
-						frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-						referrerpolicy="strict-origin-when-cross-origin"
-						allowfullscreen
-					></iframe>
+					{#each project.videoUrl as url}
+						<iframe
+							class="video"
+							src={url}
+							title="Project Video"
+							frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin"
+							allowfullscreen
+						></iframe>
+					{/each}
 				</div>
 			{/if}
 
@@ -370,6 +367,11 @@ Though simple, the project strengthened my foundation in core web technologies a
 		border-radius: 5px;
 		margin-right: 0.5rem;
 		display: inline-block;
+	}
+	.project-detail__video {
+		display: flex;
+		justify-content: space-around;
+		min-height: 200%;
 	}
 
 	.project-detail__features {

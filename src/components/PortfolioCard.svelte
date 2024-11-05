@@ -92,11 +92,6 @@
 	}
 
 	@media (max-width: 1024px) {
-		/* .portfolio-card__image-container {
-			width: 3rem;
-			height: 3rem;
-		} */
-
 		.portfolio-card__title {
 			font-size: 1rem;
 		}

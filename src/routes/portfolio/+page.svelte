@@ -4,21 +4,21 @@
 
 	const portfolioItems = [
 		{
-			slug: 'project-1',
+			slug: 'decision-maker',
 			imageUrl: '/images/Animal-Charity-Evaluators.png',
 			title: 'Decision Making Framework',
 			description:
-				'This tool is designed to help facilitate group decisions that involve voting. It will help you and your team think through some important factors that go into good decision-making and identify which voting method to use. '
+				'This tool is designed to help facilitate group decisions that involve voting. It will help you and your team think through some important factors that go into good decision-making and identify which voting method to use.'
 		},
 		{
-			slug: 'project-2',
+			slug: 'TV-show',
 			imageUrl: '/images/tvmaze.png',
 			title: 'TV Show Finder',
 			description:
 				'This project showcases my early work in DOM manipulation and API handling, built using only HTML, CSS, and vanilla JavaScript. It leverages the TV Maze API to fetch data on popular TV shows, allowing users to search for and explore details about their favorite series—all without frameworks or libraries. While it’s a straightforward app, I used it to master the fundamentals of JavaScript’s DOM and asynchronous data fetching.'
 		},
 		{
-			slug: 'project-3',
+			slug: 'Tea-Roulette',
 			imageUrl: '',
 			title: 'Example 3',
 			description: 'Example description 3'
@@ -43,6 +43,7 @@
 		}
 	];
 </script>
+
 
 <div class="portfolio">
 	<div class="portfolio__grid">
