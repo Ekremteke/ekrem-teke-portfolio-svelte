@@ -20,8 +20,9 @@
 		{
 			slug: 'Tea-Roulette',
 			imageUrl: '',
-			title: 'Example 3',
-			description: 'Example description 3'
+			title: 'Tea-Roulette',
+			description:
+				'Tea Roulette is a fun, interactive web application designed to foster friendly interactions among team members in the office. Built with JavaScript, Express.js, Node.js, HTML, and CSS, this app allows users to enter the names of people working in the office on a given day, along with their tea preferences. With a playful "roulette" spin feature, the app randomly selects one person who gets to be the "winner"—and their prize is the privilege of preparing tea for everyone!'
 		},
 		{
 			slug: 'project-4',
@@ -43,7 +44,6 @@
 		}
 	];
 </script>
-
 
 <div class="portfolio">
 	<div class="portfolio__grid">

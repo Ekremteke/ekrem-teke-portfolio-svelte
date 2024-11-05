@@ -1,17 +1,17 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
+	import debounce from 'lodash/debounce';
+
 	export let title = '';
 	export let description = '';
 	export let imageUrl = '';
 	export let slug = '';
 
-	import { onMount, onDestroy } from 'svelte';
-	import debounce from 'lodash/debounce';
-
 	let displayText = description;
 	let contentRef: HTMLElement | null = null;
 
-	const debouncedResize = debounce(() => {
-		if (contentRef) {
+	export const debouncedResize = debounce(() => {
+		if (browser && contentRef) {
 			const containerWidth = contentRef.clientWidth * 1.5;
 			const characterLimit = Math.floor(containerWidth / 3);
 			displayText =
@@ -19,17 +19,14 @@
 		}
 	}, 200);
 
-	onMount(() => {
-		debouncedResize();
-		window.addEventListener('resize', debouncedResize);
-	});
-
-	onDestroy(() => {
-		window.removeEventListener('resize', debouncedResize);
-	});
+	$: {
+		if (browser) {
+			debouncedResize();
+		}
+	}
 </script>
 
-<a href="/portfolio/{slug}" class="portfolio-card">
+<a bind:this={contentRef} href="/portfolio/{slug}" class="portfolio-card">
 	<div class="portfolio-card__image-container">
 		<img src={imageUrl} alt={title} class="portfolio-card__image" />
 	</div>
@@ -92,6 +89,11 @@
 	}
 
 	@media (max-width: 1024px) {
+		/* .portfolio-card__image-container {
+			width: 3rem;
+			height: 3rem;
+		} */
+
 		.portfolio-card__title {
 			font-size: 1rem;
 		}

@@ -66,6 +66,28 @@ Though simple, the project strengthened my foundation in core web technologies a
 			images: [],
 			technologies: ['JavaScript', 'Document Object Model (DOM)', 'HTML', 'CSS', 'Web APIs'],
 			features: []
+		},
+		'Tea-Roulette': {
+			title: `Tea Roulette`,
+			description:
+				'Tea Roulette is a fun, interactive web application designed to foster friendly interactions among team members in the office. Built with JavaScript, Express.js, Node.js, HTML, and CSS, this app allows users to enter the names of people working in the office on a given day, along with their tea preferences. With a playful "roulette" spin feature, the app randomly selects one person who gets to be the "winner"—and their prize is the privilege of preparing tea for everyone!',
+			description2: `
+	The main idea of this project is to add a lighthearted twist to office tea time, making it more engaging and inclusive. Each day, team members enter their names and tea preferences (e.g., "Ekrem, no sugar, with milk") into the app. The app provides a user-friendly interface where the sugar amount can be selected from 0 to 5, and there’s a checkbox to indicate if milk is preferred. Once everyone has added their information, users can click "Spin" to start the roulette wheel, which rapidly spins for three seconds before landing on the lucky (or unlucky!) winner.<br>
+	<br>
+	The selected "winner" is announced prominently, along with their tea preference, so they can serve everyone as per their entered details. This feature not only helps with communication in the office but also adds a little fun and team spirit to the workday!<br>
+	<br>
+	Building Tea Roulette helped me strengthen my skills in JavaScript, as well as using Express.js and Node.js for backend functionality. I learned how to handle user input dynamically and build an interactive front end using HTML and CSS. The project taught me about managing animations and timing for the roulette spin feature, which was essential for creating the excitement of "who will it be?" <br>
+	<br>
+	Please try out the <a href='https://example-link-to-tea-roulette.netlify.app/' style=color:#ffcc00;>live demo here</a> to see how it works!
+	`,
+			images: ['image1.png', 'image2.png'], // Replace with actual image paths or URLs
+			technologies: ['JavaScript', 'Express.js', 'Node.js', 'HTML', 'CSS'],
+			features: [
+				'Dynamic name and tea preference entry',
+				'Customizable tea options: sugar levels and milk selection',
+				'Random roulette-style selection with animated spinning effect',
+				'Final selection display with the "winner" who will prepare tea for everyone'
+			]
 		}
 	};
 
@@ -80,23 +102,34 @@ Though simple, the project strengthened my foundation in core web technologies a
 		return Promise.all(
 			imageSources.map(async (src) => {
 				const img = new Image();
-				img.src = src;
 
 				return new Promise<ProjectImage>((resolve) => {
+					const timeout = setTimeout(() => {
+						resolve({
+							src,
+							thumbnail: src,
+							loaded: false
+						});
+					}, 5000);
 					img.onload = () => {
+						clearTimeout(timeout);
 						resolve({
 							src,
 							thumbnail: src,
 							loaded: true
 						});
 					};
+
 					img.onerror = () => {
+						clearTimeout(timeout);
 						resolve({
 							src,
 							thumbnail: src,
 							loaded: false
 						});
 					};
+
+					img.src = src;
 				});
 			})
 		);
@@ -371,7 +404,6 @@ Though simple, the project strengthened my foundation in core web technologies a
 	.project-detail__video {
 		display: flex;
 		justify-content: space-around;
-		min-height: 200%;
 	}
 
 	.project-detail__features {
