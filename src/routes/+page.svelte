@@ -7,4 +7,7 @@
 </main>
 
 <style>
+	main {
+		align-self: center;
+	}
 </style>

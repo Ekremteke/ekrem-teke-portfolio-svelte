@@ -83,6 +83,7 @@ Following this, I expanded my skill-set through additional training with Prime T
 		align-items: center;
 		justify-content: center;
 		align-self: center;
+		justify-self: center;
 	}
 
 	.Home__info {

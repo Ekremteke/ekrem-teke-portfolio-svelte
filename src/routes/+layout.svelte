@@ -79,7 +79,7 @@
 		height: 100.1%;
 		margin-right: -5px;
 		border-radius: 1rem;
-		align-items: flex-start;
+		/* align-items: flex-start; */
 		padding: 1rem;
 		justify-content: center;
 		background-color: rgb(15, 14, 14);
