@@ -128,14 +128,17 @@
 
 <style>
 	.contact-container {
-		max-width: 90%;
-		max-height: 90%;
+		width: 100%;
 		display: flex;
 		justify-content: center;
-		align-items: center;
+		align-items: top;
 		padding: 1rem;
 		background: transparent;
 		color: currentColor;
+		background-image: url('/images/freepik-export-20241126093237RRaw.png');
+		background-position: center bottom;
+		background-size: 90%;
+		background-repeat: no-repeat;
 	}
 
 	.contact-content {
@@ -179,7 +182,7 @@
 	textarea {
 		width: 100%;
 		padding: 0.5rem;
-		border: 1px solid rgb(214, 218, 255);
+		border: 1px solid #0c0034;
 		border-radius: 0.5rem;
 		background-color: rgb(214, 218, 255);
 		transition: all 0.3s ease;
@@ -190,7 +193,7 @@
 	textarea:focus {
 		outline: none;
 		border-color: #0c0034;
-		box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+		box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
 		background-color: rgb(214, 218, 255);
 	}
 
@@ -199,22 +202,36 @@
 		align-items: center;
 		justify-content: center;
 		background-color: #0c0034;
-		color: currentColor;
+		color: white;
 		border: none;
 		border-radius: 0.5rem;
 		font-weight: 600;
 		cursor: pointer;
 		transition: all 0.3s ease;
-
 		padding: 0.5rem;
 	}
+
 	.dark .contact-container .submit-button {
+		background-color: #0c0034;
+		color: rgb(214, 218, 255);
+		border: 1px solid grey;
+	}
+	.dark .contact-container input:focus,
+	textarea:focus {
+		outline: none;
+		border-color: #0c0034;
+		box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
 		background-color: rgb(214, 218, 255);
-		color: black;
 	}
 
 	.submit-button:hover {
-		background-color: #0c0034;
+		background-color: rgb(214, 218, 255);
+		color: #0c0034;
+		border: 1px solid #0c0034;
+	}
+	.dark .contact-container .submit-button:hover {
+		background-color: rgb(214, 218, 255);
+		color: black;
 	}
 
 	.submit-button:disabled {
