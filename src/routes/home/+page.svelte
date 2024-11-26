@@ -14,7 +14,7 @@ Following this, I expanded my skill-set through additional training with Prime T
 
 	onMount(() => {
 		const handleResize = () => {
-			const containerWidth = window.innerWidth * 1.6;
+			const containerWidth = window.innerWidth * 1.8;
 			const characterLimit = Math.floor(containerWidth / 5);
 			displayText =
 				aboutText.slice(0, characterLimit) + (characterLimit < aboutText.length ? '...' : '');

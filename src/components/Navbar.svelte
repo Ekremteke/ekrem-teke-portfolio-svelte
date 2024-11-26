@@ -188,7 +188,7 @@
 <style>
 	.Navbar {
 		display: flex;
-		flex-direction: column;
+		/* flex-direction: column; */
 		gap: 1rem;
 		height: fit-content;
 		border-radius: 1rem;
