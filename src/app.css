@@ -43,7 +43,13 @@ body.light .UserOverview .UserOverview__avatar {
 .Navbar {
 	flex-direction: column;
 }
-@media screen and (max-width: 600px) {
+.Navbar__hamburger {
+	display: none;
+}
+.Navbar__navItemText {
+	display: none;
+}
+@media screen and (max-width: 650px) {
 	.body {
 		width: 100%;
 		font-size: small;
@@ -53,7 +59,7 @@ body.light .UserOverview .UserOverview__avatar {
 		position: fixed;
 		top: 10px;
 		z-index: 1000;
-		left: 0%;
+		left: 1%;
 		box-shadow: none;
 		border: none;
 	}
@@ -65,3 +71,19 @@ body.light .UserOverview .UserOverview__avatar {
 		display: none;
 	}
 }
+@media screen and (max-width: 481px) {
+	.body {
+		height: 80%;
+	}
+	.Navbar__navItem {
+		display: none;
+	}
+	.Navbar__hamburger {
+		display: block;
+	}
+
+	.Navbar__navItemText {
+		display: block;
+	}
+}
+/* Navbar__navItem */

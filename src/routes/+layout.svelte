@@ -28,11 +28,11 @@
 
 <div class="layout">
 	<div class="content-wrapper">
-		<header class="UserOverview">
-			<UserOverview />
+		<header class="header">
 			<div class="Navbar" style={navbarStyle}>
 				<Navbar />
 			</div>
+			<UserOverview />
 		</header>
 
 		<main class="route-content">
@@ -67,7 +67,7 @@
 		width: 100%;
 		min-height: min-content;
 	}
-	.UserOverview {
+	.header {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -96,6 +96,20 @@
 	.slot {
 		width: 100%;
 	}
-	@media screen and (max-size: 640px) {
+
+	@media screen and (max-width: 481px) {
+		.content-wrapper {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.route-content {
+			width: 100%;
+			border-radius: 0%;
+		}
+
+		.header {
+			width: 100%;
+		}
 	}
 </style>

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	let tooltips = {
 		home: false,
 		about: false,
@@ -6,9 +8,68 @@
 		portfolio: false,
 		contact: false
 	};
+	let isMenuOpen = false;
+
+	function closeMenu() {
+		isMenuOpen = false;
+	}
+
+	function handleOutsideClick(event: MouseEvent) {
+		const menu = document.querySelector('.Navbar__menu');
+		const hamburger = document.querySelector('.Navbar__hamburger');
+		if (
+			menu &&
+			hamburger &&
+			!menu.contains(event.target as Node) &&
+			!hamburger.contains(event.target as Node)
+		) {
+			closeMenu();
+		}
+	}
+
+	onMount(() => {
+		document.addEventListener('click', handleOutsideClick);
+		return () => {
+			document.removeEventListener('click', handleOutsideClick);
+		};
+	});
 </script>
 
 <div class="Navbar">
+	<button class="Navbar__hamburger" on:click={() => (isMenuOpen = !isMenuOpen)}>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke-width="1.5"
+			stroke="currentColor"
+			class="w-8 h-8 text-white"
+		>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				d="M3.75 5.25h16.5M3.75 12h16.5m-16.5 6.75h16.5"
+			/>
+		</svg>
+	</button>
+
+	<div class="Navbar__menu" class:hidden={isMenuOpen === false}>
+		<button class="Navbar__navItemText" on:click={closeMenu}>
+			<a href="/home">Home</a>
+		</button>
+		<button class="Navbar__navItemText" on:click={closeMenu}>
+			<a href="/about">About</a>
+		</button>
+		<button class="Navbar__navItemText" on:click={closeMenu}>
+			<a href="/blog">Blog</a>
+		</button>
+		<button class="Navbar__navItemText" on:click={closeMenu}>
+			<a href="/portfolio">Portfolio</a>
+		</button>
+		<button class="Navbar__navItemText" on:click={closeMenu}>
+			<a href="/contact">Contact</a>
+		</button>
+	</div>
 	<div
 		class="Navbar__navItem Navbar__home"
 		role="button"
@@ -188,7 +249,7 @@
 <style>
 	.Navbar {
 		display: flex;
-		/* flex-direction: column; */
+
 		gap: 1rem;
 		height: fit-content;
 		border-radius: 1rem;
@@ -199,6 +260,10 @@
 
 	.Navbar__navItem {
 		position: relative;
+	}
+	.Navbar__navItemText:hover {
+		background-color: #0c0034;
+		color: white;
 	}
 
 	.icon {
@@ -244,5 +309,32 @@
 	.dark .Navbar .tooltip {
 		background-color: rgb(252, 252, 252);
 		color: black;
+	}
+
+	@media screen and (max-width: 481px) {
+		.Navbar__menu {
+			position: absolute;
+			background-color: rgb(214, 218, 255);
+			box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+			color: black;
+			font-size: 1.2rem;
+			padding: 0rem;
+			left: 2rem;
+			top: 2rem;
+			border-radius: 0.5rem;
+			min-width: 10rem;
+			padding: 1rem 0;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+		.dark .Navbar__menu {
+			background-color: rgb(214, 218, 255);
+			box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+			color: black;
+		}
+		.hidden {
+			display: none;
+		}
 	}
 </style>

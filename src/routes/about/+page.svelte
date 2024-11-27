@@ -31,10 +31,14 @@
 				<div class="skills__category">
 					<h4 class="skills__category-title">Frontend</h4>
 					<ul class="skills__list">
-						<li class="skills__item">HTML5 & CSS3</li>
 						<li class="skills__item">JavaScript (ES6+)</li>
-						<li class="skills__item">React & Svelte</li>
-						<li class="skills__item">Tailwind CSS</li>
+						<li class="skills__item">React</li>
+						<li class="skills__item">HTML5 & CSS3</li>
+						<li class="skills__item">TypeScript</li>
+						<li class="skills__item">Next.js</li>
+						<li class="skills__item">Tailwind, Bootstrap CSS</li>
+						<li class="skills__item">Svelte</li>
+						<li class="skills__item">WordPress</li>
 					</ul>
 				</div>
 

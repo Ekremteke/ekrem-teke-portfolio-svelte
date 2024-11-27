@@ -116,8 +116,8 @@
 		.UserOverview__avatar {
 			height: 10rem;
 			width: 10rem;
-			max-height: 10rem;
-			max-width: 10rem;
+			height: 10rem;
+			width: 10rem;
 		}
 
 		.avatar {
@@ -126,17 +126,18 @@
 		}
 	}
 
-	@media screen and (max-width: 640px) {
+	@media screen and (max-width: 700px) {
 		.UserOverview__avatar {
-			max-height: 4rem;
-			max-width: 4rem;
+			height: 6rem;
+			width: 6rem;
 		}
 	}
 	.UserInformation {
 		display: flex;
 		flex-direction: column;
-		gap: 3rem;
+		gap: 1rem;
 		align-items: center;
+		text-align: center;
 	}
 	.UserInformation__name {
 		font-weight: 900;
@@ -172,5 +173,41 @@
 	}
 	.light .socialIcon:hover svg {
 		fill: white;
+	}
+
+	@media screen and (max-width: 481px) {
+		.UserOverview {
+			position: fixed;
+			bottom: 1rem;
+			margin: 0 1rem 0 1rem;
+			box-shadow: none;
+			border: none;
+			flex-direction: row;
+			height: fit-content;
+			padding: 0;
+			margin: 0;
+			align-items: center;
+			justify-content: space-around;
+		}
+		.UserOverview__social {
+			display: flex;
+			align-self: flex-end;
+			justify-content: space-around;
+		}
+		.UserOverview__avatar {
+			height: 7rem;
+			width: 7rem;
+		}
+		.avatar {
+			height: 7rem;
+			width: 7rem;
+		}
+		svg {
+			height: 1.5rem;
+		}
+
+		.UserInformation {
+			display: none;
+		}
 	}
 </style>

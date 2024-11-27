@@ -4,7 +4,7 @@
 
 	let containerWidth: number;
 	let aboutText = `
-Hello, I'm <span style= "font-weight:900; font-size:1.2rem">Ekrem</span>, a passionate <span style= "font-weight:900; font-size:1.2rem">software developer </span> with a focus on web development and design
+Hello, I'm <span style= "font-weight:900; font-size:1.2rem">Ekrem</span>, a passionate <span style= "font-weight:900; font-size:1.2rem">software engineer </span> with a focus on web development and design
 While I specialise primarily in front-end technologies, I have a solid understanding of back-end development as well.<br>
 <br> My journey in tech began in 2022 when I completed an intensive one-year Full-Stack Web Development course with Code Your Future in Manchester.<br>
 Following this, I expanded my skill-set through additional training with Prime Talent in AWS fundamentals and earned a Level-5 Full-Stack Development qualification from Gateshead College.
@@ -14,7 +14,11 @@ Following this, I expanded my skill-set through additional training with Prime T
 
 	onMount(() => {
 		const handleResize = () => {
-			const containerWidth = window.innerWidth * 1.8;
+			let containerWidth;
+			window.innerWidth <= 650
+				? (containerWidth = window.innerWidth * 3)
+				: (containerWidth = window.innerWidth * 1.8);
+
 			const characterLimit = Math.floor(containerWidth / 5);
 			displayText =
 				aboutText.slice(0, characterLimit) + (characterLimit < aboutText.length ? '...' : '');
@@ -79,7 +83,7 @@ Following this, I expanded my skill-set through additional training with Prime T
 		min-width: 100%;
 		height: 1fr;
 		flex-direction: column;
-		gap: 2rem;
+		gap: 1.2rem;
 		align-items: center;
 		justify-content: center;
 		align-self: center;
