@@ -1,32 +1,46 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	import { concurrent } from 'svelte-typewriter';
 
 	let containerWidth: number;
 	let aboutText = `
-Hello, I'm <span style="font-weight:900; font-size:1.2rem">Ekrem</span>, a passionate <span style="font-weight:900; font-size:1.2rem">software engineer </span> with a focus on web development and design
-While I specialise primarily in front-end technologies, I have a solid understanding of back-end development as well.<br>
-<br> My journey in tech began in 2022 when I completed an intensive one-year Full-Stack Web Development course with Code Your Future in Manchester.<br>
-Following this, I expanded my skill-set through additional training with Prime Talent in AWS fundamentals and earned a Level-5 Full-Stack Development qualification from Gateshead College.
-`;
+	Hello, I'm <span style="font-weight:900; font-size:1.2rem">Ekrem</span>, a passionate <span style="font-weight:900; font-size:1.2rem">software engineer </span> with a focus on web development and design
+	While I specialise primarily in front-end technologies, I have a solid understanding of back-end development as well.<br>
+	<br> My journey in tech began in 2022 when I completed an intensive one-year Full-Stack Web Development course with Code Your Future in Manchester.<br>
+	Following this, I expanded my skill-set through additional training with Prime Talent in AWS fundamentals and earned a Level-5 Full-Stack Development qualification from Gateshead College.
+	`;
 
 	let displayText = aboutText;
+	let concurrent: any;
 
 	onMount(() => {
-		const handleResize = () => {
-			let containerWidth;
-			window.innerWidth <= 650
-				? (containerWidth = window.innerWidth * 3)
-				: (containerWidth = window.innerWidth * 1.8);
+		// Asynchronous logic can be done here
+		const loadConcurrent = async () => {
+			const module = await import('svelte-typewriter');
+			concurrent = module.concurrent;
 
-			const characterLimit = Math.floor(containerWidth / 5);
-			displayText =
-				aboutText.slice(0, characterLimit) + (characterLimit < aboutText.length ? '...' : '');
+			// Resize handler setup
+			const handleResize = () => {
+				let containerWidth;
+				window.innerWidth <= 650
+					? (containerWidth = window.innerWidth * 3)
+					: (containerWidth = window.innerWidth * 1.8);
+
+				const characterLimit = Math.floor(containerWidth / 5);
+				displayText =
+					aboutText.slice(0, characterLimit) + (characterLimit < aboutText.length ? '...' : '');
+			};
+
+			handleResize();
+			window.addEventListener('resize', handleResize);
+
+			// Cleanup function is returned
+			return () => window.removeEventListener('resize', handleResize);
 		};
 
-		handleResize();
-		window.addEventListener('resize', handleResize);
-		return () => window.removeEventListener('resize', handleResize);
+		loadConcurrent().then((cleanup) => {
+			// Ensure the cleanup function is stored
+			return cleanup;
+		});
 	});
 
 	let skills = [
@@ -63,11 +77,14 @@ Following this, I expanded my skill-set through additional training with Prime T
 
 <div class="Home">
 	<div class="Home__info">
-		<h1 use:concurrent={{ interval: 80 }} class="Home__info--name">Ekrem Teke</h1>
-		<p use:concurrent={{ interval: 60 }} class="Home__info--title">Full-Stack Developer</p>
-		{#key index}
-			<p use:concurrent={{ interval: 60 }} class="Home__skills">{skills[index]}</p>
-		{/key}
+		<!-- Typewriter effect only after "concurrent" is loaded -->
+		{#if concurrent}
+			<h1 use:concurrent={{ interval: 80 }} class="Home__info--name">Ekrem Teke</h1>
+			<p use:concurrent={{ interval: 60 }} class="Home__info--title">Full-Stack Developer</p>
+			{#key index}
+				<p use:concurrent={{ interval: 60 }} class="Home__skills">{skills[index]}</p>
+			{/key}
+		{/if}
 	</div>
 	<div class="Home__About">
 		<p class="Home__About--text">{@html displayText}</p>
@@ -83,7 +100,6 @@ Following this, I expanded my skill-set through additional training with Prime T
 		min-width: 100%;
 		height: 100%;
 		flex-direction: column;
-		gap: 1.2rem;
 		align-items: center;
 		justify-content: center;
 		align-self: center;
@@ -123,6 +139,7 @@ Following this, I expanded my skill-set through additional training with Prime T
 		display: flex;
 		flex-direction: column;
 		gap: 1.5rem;
+		align-self: flex-start;
 	}
 
 	.read-more {
