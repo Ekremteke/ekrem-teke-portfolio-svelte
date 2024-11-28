@@ -328,11 +328,11 @@
 			flex-direction: column;
 			gap: 1rem;
 		}
-		.dark .Navbar__menu {
+		/* .dark .Navbar__menu {
 			background-color: rgb(214, 218, 255);
 			box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
 			color: black;
-		}
+		} */
 		.hidden {
 			display: none;
 		}
