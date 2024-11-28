@@ -4,7 +4,7 @@
 
 	let containerWidth: number;
 	let aboutText = `
-Hello, I'm <span style= "font-weight:900; font-size:1.2rem">Ekrem</span>, a passionate <span style= "font-weight:900; font-size:1.2rem">software engineer </span> with a focus on web development and design
+Hello, I'm <span style="font-weight:900; font-size:1.2rem">Ekrem</span>, a passionate <span style="font-weight:900; font-size:1.2rem">software engineer </span> with a focus on web development and design
 While I specialise primarily in front-end technologies, I have a solid understanding of back-end development as well.<br>
 <br> My journey in tech began in 2022 when I completed an intensive one-year Full-Stack Web Development course with Code Your Future in Manchester.<br>
 Following this, I expanded my skill-set through additional training with Prime Talent in AWS fundamentals and earned a Level-5 Full-Stack Development qualification from Gateshead College.
@@ -78,10 +78,10 @@ Following this, I expanded my skill-set through additional training with Prime T
 <style>
 	.Home {
 		display: grid;
-		grid-template-rows: 1fr 1fr;
+		grid-template-rows: auto auto;
 		grid-template-columns: 1fr;
 		min-width: 100%;
-		height: 1fr;
+		height: 100%;
 		flex-direction: column;
 		gap: 1.2rem;
 		align-items: center;
@@ -95,6 +95,7 @@ Following this, I expanded my skill-set through additional training with Prime T
 		grid-template-rows: 3rem 3rem 6rem;
 		justify-content: center;
 		align-items: center;
+		width: 100%;
 	}
 
 	.Home__info--name {
@@ -134,10 +135,15 @@ Following this, I expanded my skill-set through additional training with Prime T
 	.read-more:hover {
 		color: #003366;
 	}
+
 	.Home__About--text {
 		font-weight: 600;
 		color: color-mix(in srgb, black 70%, purple 80%);
+		/* Adding a min-height here ensures the text won't shift the layout drastically */
+		min-height: 4rem;
 	}
+
+	/* In dark mode, the text color is adjusted */
 	.dark .Home .Home__About--text {
 		color: color-mix(in srgb, rgb(255, 255, 255) 80%, rgb(128, 0, 128) 50%);
 	}
