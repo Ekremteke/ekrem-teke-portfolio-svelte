@@ -11,19 +11,27 @@
 	let displayText = description;
 	let contentRef: HTMLElement | null = null;
 
-	export const debouncedResize = debounce(() => {
-		if (browser && contentRef) {
-			const containerWidth = contentRef.clientWidth * 1.5;
-			const characterLimit = Math.floor(containerWidth / 3);
+	// Function to calculate character limit based on container width
+	function calculateCharacterLimit(containerWidth: number): number {
+		return Math.floor((containerWidth * 1.5) / 3);
+	}
+
+	// Debounced resize handler for responsive description truncation
+	const debouncedResize = debounce(() => {
+		if (contentRef) {
+			const containerWidth = contentRef.clientWidth;
+			const characterLimit = calculateCharacterLimit(containerWidth);
+
 			displayText =
 				description.slice(0, characterLimit) + (characterLimit < description.length ? '...' : '');
 		}
-	}, 50);
+	}, 100);
 
+	// Lifecycle hooks
 	onMount(() => {
 		if (browser) {
 			window.addEventListener('resize', debouncedResize);
-			debouncedResize();
+			debouncedResize(); // Run once on mount to set initial text
 		}
 	});
 
@@ -32,15 +40,12 @@
 			window.removeEventListener('resize', debouncedResize);
 		}
 	});
-
-	$: if (browser && description) {
-		debouncedResize();
-	}
 </script>
 
 <a href="/blog/{slug}" class="blog-card">
 	<div class="blog-card__image-container">
-		<img src={imageUrl} alt={title} class="blog-card__image" />
+		<!-- Image with lazy loading and aspect ratio for stable layout -->
+		<img src={imageUrl} alt={title} class="blog-card__image" loading="lazy" />
 	</div>
 	<div class="blog-card__content" bind:this={contentRef}>
 		<h3 class="blog-card__title">{title}</h3>
@@ -51,15 +56,15 @@
 <style>
 	.blog-card {
 		display: grid;
+		grid-template-columns: 1fr 2fr;
+		grid-template-rows: auto; /* Adjust height dynamically */
+		gap: 0.5rem;
 		align-items: center;
 		background: rgba(255, 255, 255, 0.05);
 		border-radius: 0.5rem;
-		grid-template-columns: 1fr 2fr;
-		grid-template-rows: 10rem;
-		transition: transform 0.2s ease-in-out;
-		cursor: pointer;
 		text-decoration: none;
-		gap: 0.5rem;
+		cursor: pointer;
+		transition: transform 0.2s ease-in-out;
 	}
 
 	.blog-card:hover {
@@ -67,49 +72,41 @@
 	}
 
 	.blog-card__image-container {
-		max-width: 100%;
-		height: auto;
-		padding: 0;
-		align-items: center;
-		justify-content: center;
+		width: 100%;
+		padding-top: 56.25%; /* Aspect ratio (16:9) to prevent layout shifts */
 		position: relative;
 		overflow: hidden;
 		border-radius: 0.5rem;
 	}
 
 	.blog-card__image {
-		min-width: 150%;
-		justify-self: center;
-		height: auto;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
 		object-fit: cover;
 		border-radius: 0.5rem;
-		overflow: hidden;
 	}
 
 	.blog-card__content {
 		padding: 0.5rem;
-		overflow: scroll;
-		scrollbar-width: 0;
+		overflow: hidden;
 	}
 
 	.blog-card__title {
-		color: currentColor;
+		color: inherit;
 		font-size: 1rem;
-		margin: 0 0 0.5rem 0;
+		margin-bottom: 0.5rem;
 	}
 
 	.blog-card__description {
-		color: currentColor;
+		color: inherit;
 		font-size: 0.8rem;
 		line-height: 1.2;
 	}
 
 	@media (max-width: 1024px) {
-		/* .blog-card__image-container {
-			width: 3rem;
-			height: 3rem;
-		} */
-
 		.blog-card__title {
 			font-size: 1rem;
 		}
@@ -119,9 +116,13 @@
 		}
 	}
 
-	@media (max-width: 925px) {
-		.blog-card__content {
-			padding: 0.75rem;
+	@media (max-width: 768px) {
+		.blog-card {
+			grid-template-columns: 1fr; /* Stacked layout for smaller screens */
+		}
+
+		.blog-card__image-container {
+			padding-top: 75%; /* Aspect ratio changes for smaller devices */
 		}
 	}
 </style>

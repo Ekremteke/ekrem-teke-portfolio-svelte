@@ -3,10 +3,14 @@
 
 <div class="UserOverview">
 	<div class="UserOverview__avatar">
+		<!-- Set fixed height and width for the avatar image container -->
 		<img
 			class="avatar"
 			src="/images/profile.jpg"
-			alt="Profile avatar of the Ekrem Teke with purple background at a front-end web development conference"
+			alt="Profile avatar of Ekrem Teke"
+			loading="lazy"
+			width="200"
+			height="200"
 		/>
 	</div>
 	<div class="UserInformation">
@@ -55,7 +59,7 @@
 				/>
 			</svg>
 		</a>
-		<a href="/https://github.com/Ekremteke" class="UserOverview__social--gitHub socialIcon">
+		<a href="https://github.com/Ekremteke" class="UserOverview__social--gitHub socialIcon">
 			<svg
 				class="w-[36px] h-[36px] text-gray-800 dark:text-white"
 				aria-hidden="true"
@@ -86,6 +90,7 @@
 		gap: 5rem;
 		padding: 2rem;
 	}
+
 	.UserOverview__avatar {
 		height: 13rem;
 		width: 13rem;
@@ -116,13 +121,6 @@
 		.UserOverview__avatar {
 			height: 10rem;
 			width: 10rem;
-			height: 10rem;
-			width: 10rem;
-		}
-
-		.avatar {
-			height: 200%;
-			width: 200%;
 		}
 	}
 
@@ -132,6 +130,7 @@
 			width: 6rem;
 		}
 	}
+
 	.UserInformation {
 		display: flex;
 		flex-direction: column;
@@ -139,10 +138,12 @@
 		align-items: center;
 		text-align: center;
 	}
+
 	.UserInformation__name {
 		font-weight: 900;
 		font-size: x-large;
 	}
+
 	.UserInformation__title {
 		font-weight: 700;
 		font-size: large;
@@ -152,6 +153,7 @@
 		display: flex;
 		justify-content: space-around;
 	}
+
 	.socialIcon {
 		min-width: 1rem;
 		height: auto;
@@ -171,6 +173,7 @@
 	.dark .socialIcon:hover svg {
 		fill: black;
 	}
+
 	.light .socialIcon:hover svg {
 		fill: white;
 	}
@@ -189,19 +192,23 @@
 			align-items: center;
 			justify-content: space-around;
 		}
+
 		.UserOverview__social {
 			display: flex;
 			align-self: flex-end;
 			justify-content: space-around;
 		}
+
 		.UserOverview__avatar {
 			height: 7rem;
 			width: 7rem;
 		}
+
 		.avatar {
 			height: 7rem;
 			width: 7rem;
 		}
+
 		svg {
 			height: 1.5rem;
 		}
