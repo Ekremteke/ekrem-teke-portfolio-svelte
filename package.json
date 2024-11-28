@@ -38,6 +38,7 @@
 	"type": "module",
 	"dependencies": {
 		"@acab/reset.css": "^0.10.0",
+		"@sendgrid/mail": "^8.1.4",
 		"@svelte-web-fonts/google": "^1.0.4",
 		"lodash": "^4.17.21",
 		"nodemailer": "^6.9.15",
