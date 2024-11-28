@@ -118,7 +118,7 @@
 			grid-template-columns: 1fr;
 		}
 		.portfolio-card__image-container {
-			padding: 0.4rem;
+			padding: 3rem;
 		}
 	}
 </style>
