@@ -1,4 +1,6 @@
+
 import { fail, type Actions } from '@sveltejs/kit';
+import type { Transporter } from 'nodemailer';
 import nodemailer from 'nodemailer';
 import { emailConfig } from '$lib/server/config';
 
@@ -12,28 +14,19 @@ export const actions = {
             const message = formData.get('message')?.toString();
 
             if (!name || !email || !message) {
-                return fail(400, { error: 'Please fill in all required fields.' });
+                return fail (400, { error: 'Please fill in all required fields.' });
             }
 
-            if (!emailConfig.SMTP_USER || !emailConfig.SMTP_PASS) {
-                console.error('SMTP credentials are missing');
-                return fail(500, { error: 'Email configuration is missing.' });
+            if (!emailConfig.auth.user || !emailConfig.auth.pass) {
+                console.error('Email credentials are missing');
+                return fail (500, { error: 'Email configuration is missing.' });
             }
 
-            // Create a transporter using Gmail SMTP configuration
-            const transporter = nodemailer.createTransport({
-                host: emailConfig.SMTP_HOST,
-                port: emailConfig.SMTP_PORT,
-                secure: false, // TLS için false (587 portu ile)
-                auth: {
-                    user: emailConfig.SMTP_USER,
-                    pass: emailConfig.SMTP_PASS
-                }
-            });
+            const transporter: Transporter = nodemailer.createTransport(emailConfig);
 
             const mailOptions = {
-                from: `"Contact Form" <${emailConfig.SMTP_USER}>`, // Giriş e-posta adresi
-                to: emailConfig.SMTP_USER, // Gönderilecek e-posta adresi (yani size)
+                from: `"Contact Form" <${emailConfig.auth.user}>`,
+                to: emailConfig.auth.user,
                 replyTo: email,
                 subject: `Contact Form: ${subject || 'New Contact Form Message'}`,
                 text: `
@@ -52,7 +45,6 @@ export const actions = {
                 `
             };
 
-            // E-postayı gönder
             await transporter.sendMail(mailOptions);
 
             return {
@@ -68,4 +60,5 @@ export const actions = {
             });
         }
     }
+    
 } satisfies Actions;
