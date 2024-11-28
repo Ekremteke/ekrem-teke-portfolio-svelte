@@ -186,7 +186,7 @@
 		border-radius: 0.5rem;
 		background-color: rgb(214, 218, 255);
 		transition: all 0.3s ease;
-		color: currentColor;
+		color: black;
 	}
 
 	input:focus,
