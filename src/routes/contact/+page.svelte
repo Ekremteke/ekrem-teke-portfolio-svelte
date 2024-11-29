@@ -81,6 +81,7 @@
 					bind:value={formData.name}
 					required
 					placeholder="Your Full Name"
+					autocomplete="name"
 				/>
 			</div>
 
@@ -93,6 +94,7 @@
 					bind:value={formData.email}
 					required
 					placeholder="example@email.com"
+					autocomplete="email"
 				/>
 			</div>
 
@@ -104,6 +106,7 @@
 					name="subject"
 					bind:value={formData.subject}
 					placeholder="Subject of your message"
+					autocomplete="off"
 				/>
 			</div>
 
@@ -116,6 +119,7 @@
 					required
 					placeholder="Write your message here..."
 					rows="5"
+					autocomplete="off"
 				/>
 			</div>
 
