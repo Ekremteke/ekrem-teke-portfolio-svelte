@@ -120,7 +120,7 @@
 					placeholder="Write your message here..."
 					rows="5"
 					autocomplete="off"
-				/>
+				></textarea>
 			</div>
 
 			<button type="submit" class="submit-button" disabled={isSubmitting}>
