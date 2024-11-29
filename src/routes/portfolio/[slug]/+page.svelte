@@ -378,7 +378,7 @@ Though simple, the project strengthened my foundation in core web technologies a
 	}
 	.project-detail__image-container {
 		display: flex;
-		min-width: 10rem;
+		min-width: 9rem;
 		max-width: 17rem;
 	}
 
@@ -391,7 +391,6 @@ Though simple, the project strengthened my foundation in core web technologies a
 	}
 
 	.project-detail__image {
-		width: 100%;
 		height: auto;
 		border-radius: 10px;
 	}
