@@ -475,9 +475,10 @@ Though simple, the project strengthened my foundation in core web technologies a
 	}
 
 	.modal__image {
-		width: 100%;
-		height: auto;
-		border-radius: 10px;
+		max-width: 90%;
+		max-height: 700px;
+		border-radius: 0.5rem;
+		justify-self: center;
 	}
 
 	.modal__overlay {
@@ -493,15 +494,16 @@ Though simple, the project strengthened my foundation in core web technologies a
 	}
 
 	.modal__controls {
-		position: relative;
-		z-index: 2;
+		position: fixed;
+		z-index: 1002;
+		bottom: 1rem;
 	}
 
 	.modal__close,
 	.modal__prev,
 	.modal__next {
-		position: absolute;
-		top: 20px;
+		/* position: absolute;
+		bottom: 1rem; */
 		background: rgba(25, 25, 25, 0.472);
 		border: none;
 		color: currentColor;
@@ -512,14 +514,41 @@ Though simple, the project strengthened my foundation in core web technologies a
 	}
 
 	.modal__close {
-		right: 20px;
+		position: fixed; /* Sağ üst köşeye sabitle */
+		right: 2rem;
+		top: 2rem;
+		background: rgba(25, 25, 25, 0.7);
+		border: none;
+		color: #fff;
+		font-size: 2rem;
+		cursor: pointer;
+		border-radius: 5px;
+		padding: 10px;
 	}
 
 	.modal__prev {
-		left: 20px;
+		position: fixed; /* Sol alt köşeye sabitle */
+		left: 2rem;
+		bottom: 2rem;
+		background: rgba(25, 25, 25, 0.7);
+		border: none;
+		color: #fff;
+		font-size: 2rem;
+		cursor: pointer;
+		border-radius: 5px;
+		padding: 10px;
 	}
 
 	.modal__next {
-		right: 80px;
+		position: fixed; /* Sağ alt köşeye sabitle */
+		right: 2rem;
+		bottom: 2rem;
+		background: rgba(25, 25, 25, 0.7);
+		border: none;
+		color: #fff;
+		font-size: 2rem;
+		cursor: pointer;
+		border-radius: 5px;
+		padding: 10px;
 	}
 </style>
