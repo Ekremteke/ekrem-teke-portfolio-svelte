@@ -101,6 +101,7 @@
 		.content-wrapper {
 			display: flex;
 			flex-direction: column;
+			box-shadow: none;
 		}
 
 		.route-content {
