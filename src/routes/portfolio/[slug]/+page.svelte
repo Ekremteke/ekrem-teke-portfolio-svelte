@@ -337,9 +337,9 @@ Though simple, the project strengthened my foundation in core web technologies a
 <style>
 	.project-detail {
 		color: currentColor;
-		max-width: 1200px;
+		max-width: 100%;
 		margin: 0 auto;
-		padding: 2rem;
+		padding: 1rem;
 	}
 
 	.loading-indicator {
@@ -364,7 +364,7 @@ Though simple, the project strengthened my foundation in core web technologies a
 	}
 
 	.project-detail__title {
-		font-size: 2.5rem;
+		font-size: 2rem;
 		font-weight: bold;
 		margin: 0;
 	}
@@ -372,14 +372,14 @@ Though simple, the project strengthened my foundation in core web technologies a
 	.project-detail__gallery {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: space-between;
-		margin-bottom: 2rem;
+		margin-bottom: 1.5rem;
+		gap: 0.9rem;
+		justify-content: center;
 	}
-
 	.project-detail__image-container {
-		width: 48%;
-		margin-bottom: 1rem;
-		position: relative;
+		display: flex;
+		min-width: 10rem;
+		max-width: 17rem;
 	}
 
 	.project-detail__button {
@@ -424,7 +424,9 @@ Though simple, the project strengthened my foundation in core web technologies a
 	}
 	.project-detail__video {
 		display: flex;
-		justify-content: space-around;
+		gap: 1rem;
+		flex-wrap: wrap;
+		justify-content: center;
 	}
 
 	.project-detail__features {
