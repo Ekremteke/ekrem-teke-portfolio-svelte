@@ -8,6 +8,13 @@
 			title: 'Code Your Future',
 			description:
 				'Discover how I transitioned from a decade-long career in the Air Force to becoming a software developer, with the help of CodeYourFuture. A story of resilience, learning, and growth in the tech world.'
+		},
+		{
+			slug: 'accenture-impact-week',
+			imageUrl: '/images/Accenture-cover.jpg',
+			title: 'Accenture Impact Week',
+			description:
+				'My Experience at Accenture’s Impact Week: A Journey of Collaboration and Innovation.'
 		}
 	];
 </script>

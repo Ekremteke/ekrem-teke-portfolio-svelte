@@ -86,7 +86,106 @@
 				'Team Collaboration',
 				'Problem Solving'
 			]
-		}
+		},
+	'accenture-impact-week': {
+    title: `My Experience at Accenture’s Impact Week: A Journey of Collaboration and Innovation`,
+    description:
+        'In the last week of March 2025, I had the privilege of participating in an event organised by Accenture called Impact Week, also referred to as Work Experience Week in some materials. It was an incredibly intense and enriching experience, covering a broad range of topics, from Generative AI and Agile methodologies to Design Thinking and JavaScript.',
+
+    description2: `
+        <h3 style="font-weight: bolder;">Accenture: A Global Powerhouse</h3>
+        <br>
+        Accenture is a global powerhouse in the tech industry, with an impressive:
+        <ul>
+            <li>801,000+ employees worldwide</li>
+            <li>9,000+ clients across 120+ countries</li>
+            <li>350+ partners within its ecosystem</li>
+            <li>Offices and operations in 49 countries and 200+ cities</li>
+        </ul>
+        <br>
+        One of the aspects that impressed me the most about Accenture was its commitment to AI and its dedication to fostering a diverse and inclusive working environment.
+        <br><br>
+
+        <h3 style="font-weight: bolder;">Team One: A Unique Blend of Talents</h3>
+        <br>
+        During the programme, we were divided into teams, and I was placed in Team One. My teammates were all incredibly valuable, friendly, and respectful individuals. Despite this being a tech-focused programme, my team consisted of a psychologist, a pharmacist, a university school leaver, a recent sixth-form graduate, and a former Brazilian police officer who had also studied history. While each member had an interest in technology, I was the most experienced when it came to software development.
+        <br><br>
+        The five-day programme began with an introduction to Accenture, followed by presentations on Agile, HTML, and CSS. By the final day, we were expected to present our projects—meaning we had only three days to develop them! Our project was based on five core requirements:
+        <ul>
+            <li>Creating an Accenture sub-brand</li>
+            <li>Developing a functional contact page</li>
+            <li>Building a portfolio page featuring all team members</li>
+            <li>Designing a resource page</li>
+            <li>Implementing an FAQ section</li>
+        </ul>
+        <br>
+        Our project aimed to support school leavers entering the tech industry by providing them with valuable resources and a Q&A section. In addition to meeting these criteria, we decided to integrate an AI chatbot, allowing users to receive career planning advice based on their strengths and weaknesses. We also included a feedback form for continuous improvement and utilised NodeMailer to make the contact page fully functional—submitting the form would trigger an email directly to my inbox.
+        <br><br>
+
+        <h3 style="font-weight: bolder;">Leading as a Scrum Master & Tech Lead</h3>
+        <br>
+        Given my experience, I naturally took on the roles of Scrum Master and Tech Lead. I shared my knowledge of Agile methodologies and encouraged my team to use collaboration tools like Trello to manage tasks efficiently. As we didn't have computers on the first day, we began by sketching out our prototype on paper, aligning on a shared vision for the project.
+        <br><br>
+        Considering that we essentially had only two full days for development (as one day was dedicated to preparing for the presentation), I explained to my team that completing a fully polished project within such a tight timeframe would be nearly impossible for a six-person team. Decision-making and task distribution would consume a significant portion of our time. However, ensuring that everyone contributed to the project was crucial.
+        <br><br>
+        To address this challenge, I took the initiative to build the project’s Minimum Viable Product (MVP) on the first night, incorporating the agreed-upon requirements and branding elements. The following day, during our first sprint review, the team loved the foundation I had built. From there, we worked collaboratively—some teammates focused on sourcing visuals, others worked on logo development, and two members prepared the presentation. A teammate with tech knowledge integrated the AI career advisor, while I handled the backend, implementing Express.js and NodeMailer for the contact page, refining the front-end styling, and ensuring the site was fully responsive across all devices.
+        <br><br>
+        In the end, Team One emerged as the winning team!
+        <br><br>
+
+        <h3 style="font-weight: bolder;">Mock Interview & The Apprenticeship Programme</h3>
+        <br>
+        As part of the programme, Accenture also conducted a mock interview session. However, I must admit that after several nights of limited sleep, focusing on completing the project, my performance in the mock interview wasn’t as strong as I would have liked. In hindsight, I suspect this may have impacted my selection for Accenture’s Degree Apprenticeship Programme, which was the next step following this experience.
+        <br><br>
+        Despite playing a crucial role in the winning team, I was not selected. I never received a clear explanation, but I suspect two possible reasons:
+        <ul>
+            <li>Mock Interview Performance – Although it was labelled as a ‘mock’ interview, it may have held more weight than expected.</li>
+            <li>Security Clearance – Accenture works on government-related projects and requires candidates to have been in the UK for at least five years. I have been in the UK for four years, meaning I would have met the requirement by the first year of the apprenticeship.</li>
+        </ul>
+        <br>
+        The response I received stated:
+        <blockquote>
+            “Due to the highly competitive nature of this programme, we based our decisions on the top scorers in the online assessment.”
+        </blockquote>
+        This explanation felt somewhat inconsistent—if my assessment scores were not among the highest, it raises the question of why I was invited to the programme in the first place. If my time in the UK was a determining factor, this was something that could have been considered earlier in the process. Regardless, while the outcome was not what I had hoped for, I still appreciate the experience and the opportunity to develop my skills in such a dynamic environment.
+        <br><br>
+
+        <h3 style="font-weight: bolder;">Final Thoughts: A Valuable Experience Nonetheless</h3>
+        <br>
+        Despite not being selected for the apprenticeship, I am grateful for having participated in Impact Week. It provided me with a refreshing experience, reinforcing my skills and knowledge. Leading a team in such a fast-paced environment was a confidence booster, and I had the opportunity to meet amazing, friendly, and talented teammates.
+        <br><br>
+        The presentations, especially those on Generative AI, were incredibly insightful and exciting.
+        <br><br>
+        Would I do it again? Absolutely.  
+        Would I apply to Accenture again? Probably not.  
+        But one thing is certain: this experience has only strengthened my passion for technology and leadership. Onwards and upwards!
+    `,
+
+    images: [
+        '/images/iw-1.jpg',
+		'/images/iw-2.png',
+		'/images/iw-3.jpeg',
+		'/images/iw-4.jpg',
+		'/images/iw-5.jpg',
+		'/images/iw-6.jpg',
+		'/images/iw-7.jpeg',
+		'/images/iw-8.jpg',
+        
+    ],
+
+    technologies: [
+        'Generative AI',
+        'Agile',
+        'JavaScript',
+        'Design Thinking',
+        'Node.js',
+        'Express.js',
+        'HTML',
+        'CSS',
+        'AI Chatbots',
+        'NodeMailer'
+    ]
+}
 	};
 
 	let project: Project | null = null;
