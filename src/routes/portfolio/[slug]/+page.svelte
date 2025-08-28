@@ -87,7 +87,7 @@ Though simple, the project strengthened my foundation in core web technologies a
 	<br>
 	Building Tea Roulette helped me strengthen my skills in JavaScript, as well as using Express.js and Node.js for backend functionality. I learned how to handle user input dynamically and build an interactive front end using HTML and CSS. The project taught me about managing animations and timing for the roulette spin feature, which was essential for creating the excitement of "who will it be?" <br>
 	<br>
-	Please try out the<a href='https://cyf-ekremteke-tv.netlify.app/' 
+	Please try out the<a href='https://tea-roulette.netlify.app/' 
    style="
        border-radius: 0.5rem; 
        padding: 0.2rem; 
