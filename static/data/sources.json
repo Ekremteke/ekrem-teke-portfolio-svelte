@@ -1,0 +1,65 @@
+{
+  "/about": {
+    "personal_details": {
+      "age": 36,
+      "residence": "United Kingdom",
+      "address": "Lumley Gardens, Gateshead, NE8 3QB",
+      "email": "ekremteke.uk@gmail.com"
+    },
+    "technical_skills": {
+      "frontend": ["JavaScript (ES6+)", "React", "HTML5 & CSS3", "TypeScript", "Next.js", "Tailwind", "Bootstrap CSS", "Svelte", "WordPress"],
+      "backend": ["Node.js", "Express", "PostgreSQL", "REST APIs"]
+    },
+    "services": {
+      "web_design": ["UI/UX Design", "Responsive Design", "Mobile-First Approach", "Prototyping"],
+      "web_development": ["Frontend Development", "Backend Integration", "API Development", "Performance Optimization"],
+      "ecommerce": ["Online Store Setup", "Payment Integration", "Inventory Management", "Shopping Cart Development"]
+    },
+    "about_me": "Hello, I’m Ekrem, a passionate software developer with a focus on web development and design. I specialise in front-end technologies but also have solid back-end knowledge. I trained through Code Your Future and Prime Talent, and earned a Level-5 Full-Stack Development qualification. I’m originally from Turkey and now live in Gateshead, UK. Outside coding, I enjoy calligraphy, assembling furniture, swimming, cycling, volunteering, and learning music.",
+    "work_philosophy": "I write clean, maintainable code following best practices, aiming for sustainable long-term solutions. I continuously learn new technologies and trends.",
+    "current_focus": "Cloud technologies, serverless architectures, AI and machine learning integration in web applications."
+  },
+  "/blog/code-your-future": {
+    "title": "How CodeYourFuture Transformed My Career",
+    "description": "This blog details my journey transitioning from the Turkish Air Force to becoming a software developer in the UK through CodeYourFuture. It covers challenges, successes, and lessons learned.",
+    "sections": [
+      "From the Air Force to a New Career in the UK",
+      "Why CodeYourFuture?",
+      "The Biggest Challenges",
+      "A Golden Opportunity",
+      "Looking Back: What I’ve Learned",
+      "Final Thoughts"
+    ],
+    "technologies_learned": ["JavaScript", "CSS", "HTML", "React", "PostgreSQL", "Express.js", "Node.js", "Agile", "Git", "Team Collaboration", "Problem Solving"]
+  },
+  "/blog/accenture-impact-week": {
+    "title": "My Experience at Accenture’s Impact Week",
+    "description": "A week-long experience at Accenture covering Generative AI, Agile, Design Thinking, and JavaScript. Participated in a team project, led as Scrum Master & Tech Lead, and won the team challenge.",
+    "sections": [
+      "Accenture: A Global Powerhouse",
+      "Team One: A Unique Blend of Talents",
+      "Leading as a Scrum Master & Tech Lead",
+      "Mock Interview & The Apprenticeship Programme",
+      "Final Thoughts"
+    ],
+    "technologies_learned": ["Generative AI", "Agile", "JavaScript", "Design Thinking", "Node.js", "Express.js", "HTML", "CSS", "AI Chatbots", "NodeMailer"]
+  },
+  "/portfolio/decision-maker": {
+    "title": "Decision Making Framework",
+    "description": "A voting tool designed for nonprofits to facilitate group decisions. Built with React, Node.js, Express.js, and PostgreSQL.",
+    "technologies_used": ["React", "Node.js", "Express.js", "PostgreSQL", "JavaScript", "GitHub", "Trello", "Figma", "HTML", "CSS", "Bootstrap"],
+    "key_features": ["Voting methods selection", "PDF summary export", "High-performance, scalable architecture"]
+  },
+  "/portfolio/Tea-Roulette": {
+    "title": "Tea Roulette",
+    "description": "Interactive office app that randomly selects a person to make tea based on preferences. Built with JavaScript, Node.js, and Express.js.",
+    "technologies_used": ["JavaScript", "Express.js", "Node.js", "HTML", "CSS"],
+    "key_features": ["Dynamic name and tea preference entry", "Customizable sugar/milk options", "Random roulette selection with animation", "Winner announcement display"]
+  },
+  "/portfolio/TV-show": {
+    "title": "TV Show Finder",
+    "description": "A project showcasing DOM manipulation and API handling with vanilla JavaScript, fetching TV show data from TV Maze API.",
+    "technologies_used": ["JavaScript", "DOM", "HTML", "CSS", "Web APIs"],
+    "key_features": ["Search and explore TV shows", "Progressive enhancement", "User-friendly interface on slow networks", "Dynamic content rendering"]
+  }
+}

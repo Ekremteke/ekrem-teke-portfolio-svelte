@@ -39,6 +39,7 @@
 						<li class="skills__item">Tailwind, Bootstrap CSS</li>
 						<li class="skills__item">Svelte</li>
 						<li class="skills__item">WordPress</li>
+						<li class="skills__item">Power Automate</li>
 					</ul>
 				</div>
 

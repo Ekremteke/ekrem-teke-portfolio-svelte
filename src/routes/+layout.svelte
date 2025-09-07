@@ -1,8 +1,10 @@
+<!-- src\routes\+layout.svelte -->
 <script lang="ts">
 	import '../app.css';
 	import Navbar from '../components/Navbar.svelte';
 	import UserOverview from '../components/UserOverview.svelte';
 	import { onMount } from 'svelte';
+	import Chatbot from '$lib/components/Chatbot.svelte';
 
 	let navbarStyle = '';
 
@@ -39,6 +41,7 @@
 			<slot class="slot" />
 		</main>
 	</div>
+	<Chatbot />
 </div>
 
 <style>
