@@ -4,7 +4,7 @@ import OpenAI from "openai";
 
 // OpenAI client
 const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY // Cloudflare Pages environment variable olarak ekle
+  apiKey: process.env.OPENAI_API_KEY || import.meta.env.OPENAI_API_KEY
 });
 
 // Edge uyumlu şekilde sources.json'u fetch ile yükle
