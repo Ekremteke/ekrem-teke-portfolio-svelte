@@ -1,22 +1,18 @@
 // src/routes/api/chat/+server.ts
 import type { RequestHandler } from './$types';
-import { OpenAI } from 'openai';
-import fs from 'fs/promises';
-import path from 'path';
-import { config } from 'dotenv';
+import OpenAI from "openai";
 
-if (process.env.NODE_ENV !== 'production') {
-  config(); // load local .env
-}
-
+// OpenAI client
 const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
+  apiKey: process.env.OPENAI_API_KEY // Cloudflare Pages environment variable olarak ekle
 });
 
+// Edge uyumlu şekilde sources.json'u fetch ile yükle
 async function loadSources() {
-  const filePath = path.resolve('static/data/sources.json');
-  const raw = await fs.readFile(filePath, 'utf-8');
-  return JSON.parse(raw) as Record<string, string>;
+  const res = await fetch(`${import.meta.env.BASE_URL}data/sources.json`);
+  if (!res.ok) throw new Error('Cannot load sources.json');
+  const data = (await res.json()) as Record<string, string>;
+  return data;
 }
 
 export const GET: RequestHandler = async () => {
