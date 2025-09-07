@@ -3,6 +3,9 @@ import type { RequestHandler } from './$types';
 import { OpenAI } from 'openai';
 import fs from 'fs/promises';
 import path from 'path';
+import { config } from 'dotenv';
+
+config();
 
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
