@@ -1,64 +1,36 @@
+import { fail } from '@sveltejs/kit';
+import type { Actions } from './$types';
 
-import { fail, type Actions } from '@sveltejs/kit';
-import type { Transporter } from 'nodemailer';
-import nodemailer from 'nodemailer';
-import { emailConfig } from '$lib/server/config';
-
-export const actions = {
+export const actions: Actions = {
     default: async ({ request }) => {
-        try {
-            const formData = await request.formData();
-            const name = formData.get('name')?.toString();
-            const email = formData.get('email')?.toString();
-            const subject = formData.get('subject')?.toString();
-            const message = formData.get('message')?.toString();
+        const formData = await request.formData();
+        const name = formData.get('name')?.toString();
+        const email = formData.get('email')?.toString();
+        const subject = formData.get('subject')?.toString();
+        const message = formData.get('message')?.toString();
 
-            if (!name || !email || !message) {
-                return fail (400, { error: 'Please fill in all required fields.' });
-            }
-
-            if (!emailConfig.auth.user || !emailConfig.auth.pass) {
-                console.error('Email credentials are missing');
-                return fail (500, { error: 'Email configuration is missing.' });
-            }
-
-            const transporter: Transporter = nodemailer.createTransport(emailConfig);
-
-            const mailOptions = {
-                from: `"Contact Form" <${emailConfig.auth.user}>`,
-                to: emailConfig.auth.user,
-                replyTo: email,
-                subject: `Contact Form: ${subject || 'New Contact Form Message'}`,
-                text: `
-                    Name: ${name}
-                    Email: ${email}
-                    Subject: ${subject || 'Not specified'}
-                    Message: ${message}
-                `,
-                html: `
-                    <h2>New Contact Form Message</h2>
-                    <p><strong>Name:</strong> ${name}</p>
-                    <p><strong>Email:</strong> ${email}</p>
-                    <p><strong>Subject:</strong> ${subject || 'Not specified'}</p>
-                    <p><strong>Message:</strong></p>
-                    <p>${message.replace(/\n/g, '<br>')}</p>
-                `
-            };
-
-            await transporter.sendMail(mailOptions);
-
-            return {
-                success: true,
-                message: 'Your message has been successfully sent.'
-            };
-
-        } catch (error) {
-            console.error('Form submission error:', error);
-            return fail(500, {
-                error: 'An error occurred. Please try again.',
-                details: error instanceof Error ? error.message : 'Unknown error'
-            });
+        if (!name || !email || !message) {
+            return fail(400, { error: 'Please fill in all required fields.' });
         }
+
+      const powerAutomateUrl = 'https://defaultb3946708d7484dcf963d354fb648b4.d2.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/49810e61a162491c9ca617045ed4819a/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=71heziHMgnq9c4gUShmqLAVeBQC5XIdhZ2J_KILL3Jo'; // Flow URL'ni buraya ekle
+
+
+        const response = await fetch(powerAutomateUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, email, subject, message })
+        });
+
+        if (!response.ok) {
+            return fail(500, { error: 'Failed to send message via Power Automate.' });
+        }
+
+        return {
+            success: true,
+            message: 'Your message has been successfully sent.'
+        };
     }
-    
-} satisfies Actions;
+};
