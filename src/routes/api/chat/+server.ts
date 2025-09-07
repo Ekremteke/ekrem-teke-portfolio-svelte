@@ -5,7 +5,9 @@ import fs from 'fs/promises';
 import path from 'path';
 import { config } from 'dotenv';
 
-config();
+if (process.env.NODE_ENV !== 'production') {
+  config(); // load local .env
+}
 
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
@@ -17,20 +19,29 @@ async function loadSources() {
   return JSON.parse(raw) as Record<string, string>;
 }
 
+export const GET: RequestHandler = async () => {
+  return new Response(JSON.stringify({
+    message: 'Test endpoint working! Backend is responding.',
+    environment: process.env.NODE_ENV,
+    hasOpenAIKey: !!process.env.OPENAI_API_KEY
+  }), {
+    headers: { 'Content-Type': 'application/json' }
+  });
+};
+
 export const POST: RequestHandler = async ({ request }) => {
   const { message } = await request.json();
   const sources = await loadSources();
 
   const context = Object.entries(sources)
-  .map(([key, value]) => {
-    const text = typeof value === 'string' ? value : JSON.stringify(value);
-    return `Source: ${key}\n${text}`;
-  })
-  .join('\n\n');
-
+    .map(([key, value]) => {
+      const text = typeof value === 'string' ? value : JSON.stringify(value);
+      return `Source: ${key}\n${text}`;
+    })
+    .join('\n\n');
 
   const completion = await client.chat.completions.create({
-    model: 'gpt-3.5-turbo',
+    model: 'gpt-3.5-turbo', 
     messages: [
       {
         role: 'system',
