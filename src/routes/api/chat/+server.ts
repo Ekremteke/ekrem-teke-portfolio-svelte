@@ -24,6 +24,11 @@ export const POST: RequestHandler = async ({ request }) => {
   try {
     const { message } = await request.json();
 
+    
+console.log('Received message:', message);
+    console.log('OpenAI Key exists:', !!process.env.OPENAI_API_KEY);
+
+
     const context = Object.entries(sources)
       .map(([key, value]) => {
         const text =
