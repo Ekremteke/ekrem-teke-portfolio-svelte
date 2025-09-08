@@ -55,11 +55,17 @@ Always answer in professional English.`
     return new Response(JSON.stringify({ reply }), {
       headers: { 'Content-Type': 'application/json' }
     });
-  } catch (err: any) {
-    console.error('Chat API error:', err);
-    return new Response(
-      JSON.stringify({ error: 'Server error', details: err.message }),
-      { status: 500, headers: { 'Content-Type': 'application/json' } }
-    );
+} catch (err: unknown) {
+  console.error('Chat API error:', err);
+
+  let message = 'Unknown error';
+  if (err instanceof Error) {
+    message = err.message;
   }
+
+  return new Response(
+    JSON.stringify({ error: 'Server error', details: message }),
+    { status: 500, headers: { 'Content-Type': 'application/json' } }
+  );
+}
 };
