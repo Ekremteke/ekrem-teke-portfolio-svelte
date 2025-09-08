@@ -3,9 +3,11 @@ import type { RequestHandler } from './$types';
 import OpenAI from 'openai';
 import sources from '$lib/data/sources.json';
 
+
 const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
+  apiKey: import.meta.env.VITE_OPENAI_API_KEY
 });
+
 
 export const GET: RequestHandler = async () => {
   return new Response(
