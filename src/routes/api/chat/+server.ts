@@ -126,7 +126,7 @@ export const POST: RequestHandler = async ({ request, platform }) => {
       messages: [
         {
           role: 'system',
-          content: `You are Ekrem Teke's portfolio assistant. Answer questions using ONLY the provided sources. If the exact answer is not in the sources, say: "This information is not in my sources, but I can guess: ..." and provide a reasonable guess. Always answer in professional English.`
+          content: `You are Ekrem Teke's portfolio assistant. Answer questions using ONLY the provided sources. If the exact answer is not in the sources, say: "This information is not in my sources, but I can guess: ..." and provide a reasonable guess. Always answer in friendly English.`
         },
         { role: 'user', content: `Sources:\n${context}` },
         { role: 'user', content: `Question: ${message}` }
